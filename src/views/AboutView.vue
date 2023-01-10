@@ -13,7 +13,7 @@
 export default {
   data() {
     return {
-      formula: '$$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}$$'
+      formula: '$$e^x = \\sum\\limits_{n=0}^{\\infty} \\frac{x^n}{n!}$$'
     }
   }
 }
