@@ -25,7 +25,7 @@ export default {
     font-size: 10em;
   }
   .math {
-    background-color: rgb(7, 194, 201);
+    background-color: #42b983;
     padding: 50px;
   }
   
