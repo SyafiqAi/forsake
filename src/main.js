@@ -21,6 +21,9 @@ app.component('TextArea', TextArea);
 import SideMenu from './components/SideMenu.vue';
 app.component('SideMenu', SideMenu);
 
+import NavMenu from './components/NavMenu.vue';
+app.component('NavMenu', NavMenu);
+
 //#endregion
 
 app.mount('#app');
