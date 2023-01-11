@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div id="aboutview-main">
     <h1>This is an about page</h1>
     
     <div class="math">
@@ -20,6 +20,11 @@ export default {
 </script>
 
 <style scoped>
+
+  #aboutview-main {
+    text-align: center;
+  }
+  
   :deep(.MathJax)  {
     color: white;
     font-size: 10em;
