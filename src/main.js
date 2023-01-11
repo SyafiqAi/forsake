@@ -18,6 +18,9 @@ app.component('Footer', Footer);
 import TextArea from './components/TextArea.vue';
 app.component('TextArea', TextArea);
 
+import SideMenu from './components/SideMenu.vue';
+app.component('SideMenu', SideMenu);
+
 //#endregion
 
 app.mount('#app');
