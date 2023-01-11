@@ -8,7 +8,7 @@
   <!-- <div>Made by Syafiq 2023</div> -->
   <br />
   <br />
-  <HelloWorld msg="hellow"/>
+  <HelloWorld />
 </div>
   
 </template>

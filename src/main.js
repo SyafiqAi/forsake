@@ -15,6 +15,9 @@ app.component('HelloWorld', HelloWorld);
 import Footer from './components/Footer.vue';
 app.component('Footer', Footer);
 
+import TextArea from './components/TextArea.vue';
+app.component('TextArea', TextArea);
+
 //#endregion
 
 app.mount('#app');

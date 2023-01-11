@@ -1,7 +1,7 @@
 <template>
   <div id="hello-world-main">
 
-    <textarea id="tarea" v-model="formula"/>
+    <TextArea v-model="formula" height='100px' width='500px' />
     <br />
     <br />
 
@@ -14,9 +14,6 @@
 <script>
 export default {
   name: "HelloWorld",
-  props: {
-    msg: String,
-  },
   data() {
     return {
       formula: '$$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}$$'
@@ -26,16 +23,10 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="scss" scoped>
 
 #hello-world-main {
   text-align: center;
-}
-
-#tarea {
-  padding: 10px;
-  height: 100px;
-  width: 500px;
 }
 
 @media only screen and (max-width: 600px) {

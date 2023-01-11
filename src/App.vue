@@ -40,4 +40,8 @@ nav {
     }
   }
 }
+
+#MathJax_Message {
+  display: none !important;
+}
 </style>
