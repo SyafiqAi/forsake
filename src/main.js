@@ -26,4 +26,10 @@ app.component('NavMenu', NavMenu);
 
 //#endregion
 
+//#region Colors
+
+app.config.globalProperties.$dark = 'hello'
+
+//#endregion
+
 app.mount('#app');

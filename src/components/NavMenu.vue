@@ -1,7 +1,7 @@
 <template>
   <nav>
-    <div class="burger">
-        &#9776;
+    <div class="burger" @click="toggleSideMenu" :style="'color:' + this.burgerColor">
+        <span v-html="sideMenuIcon"></span>
     </div>
     <router-link to='/'>Home</router-link > | 
     <router-link to='/about'>About</router-link>
@@ -9,11 +9,31 @@
         &#9776;
     </div>
   </nav>
+    <SideMenu :show="showSideMenu"/>
 </template>
 
 <script>
 export default {
+    data() {
+        return {
+            showSideMenu: false,
+            burgerColor: '#2c3e50',
+            sideMenuIcon: '&#9776;',
+        }
+    },
+    methods: {
+        toggleSideMenu() {
+            this.toggleBurgerColor();
+            this.showSideMenu = !this.showSideMenu;
+        },
 
+        toggleBurgerColor() {
+            const activeBurgerColor = 'white';
+            const inactiveBurgerColor = '#2c3e50';
+
+            this.burgerColor = this.showSideMenu ? inactiveBurgerColor : activeBurgerColor;
+        }
+    }
 }
 </script>
 
@@ -30,6 +50,8 @@ nav {
     font-size: 2em;
     margin-right: auto;
     cursor: pointer;
+    z-index: 999;
+    transition: 0.5s;
   }
 
   > a {
