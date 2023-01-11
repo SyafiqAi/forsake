@@ -1,7 +1,9 @@
 <template>
   <div id="hello-world-main">
 
-    <TextArea v-model="formula" height='100px' width='500px' />
+    <div class="tarea-container">
+      <TextArea v-model="formula" />
+    </div>
     <br />
     <br />
 
@@ -27,12 +29,23 @@ export default {
 
 #hello-world-main {
   text-align: center;
+
+  > .tarea-container {
+    margin: auto;
+    // display: flex;
+    justify-content: center;
+    height: 100px;
+    width: 500px;
+    // width: 500px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .tarea-container {
+      width: 80vw;
+    }
+  }
+  
 }
 
-@media only screen and (max-width: 600px) {
-  #tarea {
-    width: 80vw;
-  }
-}
 
 </style>

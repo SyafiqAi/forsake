@@ -1,38 +1,32 @@
 <template>
-<div>
   <textarea
     :value="modelValue"
     @input="$emit('update:modelValue', $event.target.value)"
-    :style="
-        (width ? 'width:' + width + ';': '') + 
-        (height ? 'height:' + height + ';' : '')
-    "
   />
- </div>
 </template>
 
 <script>
 export default {
-  props: [
-    'modelValue', 
-    'height',
-    'width'
-    ],
-  emits: ['update:modelValue'],
-}
+    props: ["modelValue"],
+    emits: ["update:modelValue"],
+};
 </script>
 
 <style lang="scss" scoped>
-
 textarea {
-  padding: 10px;
-  resize: none;
-  border-radius: 10px;
+    resize: none;
+    display: block;
+    padding: 10px;
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
 
-  &:focus {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    &:focus {
     outline-color: #42b983;
-  }
-  
+    }
 }
-
 </style>
