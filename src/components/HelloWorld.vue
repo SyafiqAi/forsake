@@ -24,7 +24,6 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 
 #hello-world-main {
@@ -32,11 +31,9 @@ export default {
 
   > .tarea-container {
     margin: auto;
-    // display: flex;
     justify-content: center;
     height: 100px;
     width: 500px;
-    // width: 500px;
   }
 
   @media only screen and (max-width: 600px) {

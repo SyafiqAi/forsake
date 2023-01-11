@@ -1,7 +1,9 @@
 <template>
   <div id="footer">
     <div class="copyright">
-        &copy; Syafiq 2023
+      &copy; Syafiq 2023 
+      <br /><br />
+      Thank you Mason.
     </div>
   </div>
 </template>
@@ -25,6 +27,7 @@ export default {
     }
 
     .copyright {
+        opacity: 0.7;
         text-align: center;
     }
 </style>
