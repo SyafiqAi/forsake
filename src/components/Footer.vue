@@ -17,7 +17,11 @@ export default {
         background-color: #2c3e50;
         color: white;
         width: 100%;
-        height: 100px;
+        height: 10vh;
+        margin-top: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .copyright {
