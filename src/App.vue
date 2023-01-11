@@ -12,6 +12,10 @@ export default {
 </script>
 
 <style lang="scss">
+.red{
+  border: 1px solid red;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
