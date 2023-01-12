@@ -7,41 +7,41 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   inkscape:export-ydpi="95.900002"
-   inkscape:export-xdpi="95.900002"
-   inkscape:export-filename="E:\myfiles\music\alternate\bolt.png"
-   width="69.845207mm"
-   height="69.845207mm"
-   viewBox="0 0 69.845209 69.845208"
-   version="1.1"
-   id="svg935"
+   sodipodi:docname="bolt.svg"
    inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
-   sodipodi:docname="bolt.svg">
+   id="svg935"
+   version="1.1"
+   viewBox="0 0 47.320283 41.290658"
+   height="41.290657mm"
+   width="47.320282mm"
+   inkscape:export-filename="E:\myfiles\music\alternate\bolt.png"
+   inkscape:export-xdpi="95.900002"
+   inkscape:export-ydpi="95.900002">
   <defs
      id="defs929" />
   <sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="207.30943"
-     inkscape:cy="50.515241"
-     inkscape:document-units="mm"
-     inkscape:current-layer="layer1"
-     inkscape:document-rotation="0"
-     showgrid="false"
-     inkscape:snap-center="true"
-     showguides="true"
-     inkscape:guide-bbox="true"
-     inkscape:snap-intersection-paths="true"
-     inkscape:window-width="1920"
-     inkscape:window-height="1017"
-     inkscape:window-x="-8"
+     inkscape:window-maximized="1"
      inkscape:window-y="-8"
-     inkscape:window-maximized="1" />
+     inkscape:window-x="-8"
+     inkscape:window-height="1017"
+     inkscape:window-width="1920"
+     inkscape:snap-intersection-paths="true"
+     inkscape:guide-bbox="true"
+     showguides="true"
+     inkscape:snap-center="true"
+     showgrid="false"
+     inkscape:document-rotation="0"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="mm"
+     inkscape:cy="-3.4461179"
+     inkscape:cx="164.74265"
+     inkscape:zoom="1.4"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base" />
   <metadata
      id="metadata932">
     <rdf:RDF>
@@ -55,42 +55,42 @@
     </rdf:RDF>
   </metadata>
   <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
+     transform="translate(-462.1161,-69.911321)"
      id="layer1"
-     transform="translate(-450.85364,-55.634045)">
+     inkscape:groupmode="layer"
+     inkscape:label="Layer 1">
     <rect
-       inkscape:export-ydpi="95.900002"
-       inkscape:export-xdpi="95.900002"
-       y="105.88071"
-       x="608.54266"
-       height="69.845207"
-       width="69.845207"
+       style="fill:#ffffff;stroke:none;stroke-width:2.68635;stroke-linejoin:round;stroke-opacity:1;stop-color:#000000"
        id="rect847"
-       style="fill:#ffffff;stroke:none;stroke-width:2.68635;stroke-linejoin:round;stroke-opacity:1;stop-color:#000000" />
+       width="69.845207"
+       height="69.845207"
+       x="608.54266"
+       y="105.88071"
+       inkscape:export-xdpi="95.900002"
+       inkscape:export-ydpi="95.900002" />
     <g
-       transform="translate(-118.49553,-9.0714132)"
-       id="g877">
+       id="g877"
+       transform="matrix(0.67750222,0,0,0.67750222,76.380777,23.058416)">
       <circle
-         cy="99.628075"
-         cx="604.27179"
-         id="path1502"
+         r="11.014253"
          style="fill:none;stroke:#21d0b3;stroke-width:3.41602;stroke-linejoin:round;stroke-opacity:1;stop-color:#000000"
-         r="11.014253" />
-      <path
-         inkscape:transform-center-y="-7.528766"
-         inkscape:transform-center-x="-8.3036557"
-         sodipodi:nodetypes="cccc"
-         id="path1514"
-         d="M 629.57254,113.33523 637.48639,99.628048 620.87908,70.863363 H 587.66446"
-         style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#21d0b3;stroke-width:3.41602;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1" />
+         id="path1502"
+         cx="604.27179"
+         cy="99.628075" />
       <path
          style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#21d0b3;stroke-width:3.41602;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
-         d="m 578.97099,85.920884 -7.91384,13.707182 16.60731,28.764694 h 33.21462"
-         id="path1538"
+         d="M 629.57254,113.33523 637.48639,99.628048 620.87908,70.863363 H 587.66446"
+         id="path1514"
          sodipodi:nodetypes="cccc"
+         inkscape:transform-center-x="-8.3036557"
+         inkscape:transform-center-y="-7.528766" />
+      <path
+         inkscape:transform-center-y="7.5287595"
          inkscape:transform-center-x="8.3036543"
-         inkscape:transform-center-y="7.5287595" />
+         sodipodi:nodetypes="cccc"
+         id="path1538"
+         d="m 578.97099,85.920884 -7.91384,13.707182 16.60731,28.764694 h 33.21462"
+         style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#21d0b3;stroke-width:3.41602;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1" />
     </g>
   </g>
 </svg>
