@@ -28,14 +28,7 @@ export default {
             visibility: 'hidden',
 
             burgerAngle: 0,
-            burgerMarginTop: '0',
-            burgerMarginLeft: '0',
         }
-    },
-
-    mounted() {
-        console.log("hello");
-        this.setBurgerMargins();
     },
     
     methods: {
@@ -66,12 +59,6 @@ export default {
         },
 
         //#endregion
-
-        setBurgerMargins() {
-            let margin = this.isSmallScreen() ? '3vh' : '3vh';
-            this.burgerMarginLeft = margin;
-            this.burgerMarginTop = margin;
-        },
         
     },
     watch: {
@@ -94,8 +81,6 @@ export default {
     display: block;
 
 
-    // margin-top: v-bind(burgerMarginTop);
-    // margin-left: v-bind(burgerMarginLeft);
     margin-top: 2vh;
     margin-left: 2vh;
     color: v-bind(burgerIconColor);
