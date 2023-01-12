@@ -7,7 +7,16 @@
 
 <script>
 export default {
-  name: "App",
+  name: "App",    
+  watch: {
+    $route: {
+      immediate: true,
+      handler(to, from) {
+        document.title = to.name || 'Forsake';
+      }
+    },
+    }
+
 };
 </script>
 
