@@ -94,8 +94,10 @@ export default {
     display: block;
 
 
-    margin-top: v-bind(burgerMarginTop);
-    margin-left: v-bind(burgerMarginLeft);
+    // margin-top: v-bind(burgerMarginTop);
+    // margin-left: v-bind(burgerMarginLeft);
+    margin-top: 2vh;
+    margin-left: 2vh;
     color: v-bind(burgerIconColor);
 
     > .burger-icon {
