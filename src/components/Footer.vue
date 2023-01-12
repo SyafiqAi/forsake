@@ -19,7 +19,7 @@ export default {
         background-color: v-bind('$boldGreen');
         color: white;
         width: 100%;
-        height: 10vh;
+        min-height: 10vh;
         margin-top: auto;
         display: flex;
         align-items: center;
