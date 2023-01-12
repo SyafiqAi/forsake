@@ -20,13 +20,16 @@ textarea {
     border-radius: 10px;
     height: 100%;
     width: 100%;
+    color: v-bind('$grey');
+    font-weight: bold;
+    background-color: v-bind('$darkBlue');
 
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 
     &:focus {
-    outline-color: #42b983;
+    outline-color: v-bind('$lightGreen');
     }
 }
 </style>

@@ -24,7 +24,7 @@ export default {
         return {
             width: '0',
             show: false,
-            burgerIconColor: '#2c3e50',
+            burgerIconColor: this.$grey,
             visibility: 'hidden',
 
             burgerAngle: 0,
@@ -48,13 +48,13 @@ export default {
             const sidemenuWidth = this.isSmallScreen() ? '100vw' : '500px';
             
             this.width = sidemenuWidth;
-            this.burgerIconColor = 'white';
+            this.burgerIconColor = this.$boldGreen;
             this.visibility = 'visible';
         },
 
         closeMenu() {
             this.width = '0';
-            this.burgerIconColor = '#2c3e50';
+            this.burgerIconColor = this.$grey;
             this.visibility = 'hidden';
         },
 
@@ -83,7 +83,6 @@ export default {
 
     margin-top: 2vh;
     margin-left: 2vh;
-    color: v-bind(burgerIconColor);
 
     > .burger-icon {
         display: flex;
@@ -95,6 +94,9 @@ export default {
             background-color: v-bind(burgerIconColor);
             transition: 0.5s;
         }
+        &:hover div {
+            background-color: v-bind('$lightGreen');
+        }
         height: 30px;
         width: 30px;
     }
@@ -104,14 +106,15 @@ export default {
 .sidemenu-main {
     position: fixed;
     height: 100%;
-    background-color: #2c3e50;
+    background-color: v-bind('$darkBlue');
     font-size: 3em;
     color: white;
     transition: 0.5s;
     z-index: 998;
     overflow-x: hidden;
     border-radius: 0 5px 5px 0;
-    box-shadow: 0px 0px 10px #000000;
+    box-shadow: 0px 0px 40px #000000;
+    // background-image: linear-gradient(to top left, v-bind('$darkBlue'), #090d11);
 }
 
 </style>

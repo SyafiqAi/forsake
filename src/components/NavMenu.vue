@@ -7,26 +7,6 @@
 
 <script>
 export default {
-    data() {
-        return {
-            showSideMenu: false,
-            burgerColor: '#2c3e50',
-            sideMenuIcon: '&#9776;',
-        }
-    },
-    methods: {
-        toggleSideMenu() {
-            this.toggleBurgerColor();
-            this.showSideMenu = !this.showSideMenu;
-        },
-
-        toggleBurgerColor() {
-            const activeBurgerColor = 'white';
-            const inactiveBurgerColor = '#2c3e50';
-
-            this.burgerColor = this.showSideMenu ? inactiveBurgerColor : activeBurgerColor;
-        }
-    }
 }
 </script>
 
@@ -50,10 +30,13 @@ nav {
   > a {
     margin: auto 10px;
     font-weight: bold;
-    color: #2c3e50;
+    color: v-bind('$grey');
     
     &.router-link-exact-active {
-      color: #42b983;
+      color: v-bind('$boldGreen');
+    }
+    &:hover {
+      color: v-bind('$lightGreen');
     }
   }
 

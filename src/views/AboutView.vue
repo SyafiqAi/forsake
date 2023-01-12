@@ -30,7 +30,7 @@ export default {
     font-size: 10em;
   }
   .math {
-    background-color: #42b983;
+    background-color: v-bind('$boldGreen');
     padding: 50px;
   }
   

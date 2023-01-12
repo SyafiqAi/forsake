@@ -28,7 +28,15 @@ app.component('NavMenu', NavMenu);
 
 //#region Colors
 
-app.config.globalProperties.$dark = 'hello'
+app.config.globalProperties.$white = '#FFFFFF';
+app.config.globalProperties.$darkBlue = '#17222DFF';
+app.config.globalProperties.$boldBlue = '#1DCDFEFF';
+app.config.globalProperties.$lightBlue = '#34F0F5FF';
+app.config.globalProperties.$boldGreen = '#21D0B3FF';
+app.config.globalProperties.$lightGreen = '#34F5C6FF';
+app.config.globalProperties.$altRed = '#E64242FF';
+app.config.globalProperties.$red = '#E84F4FFF';
+app.config.globalProperties.$grey = '#D9D9D9';
 
 //#endregion
 

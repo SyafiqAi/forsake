@@ -1,13 +1,21 @@
 <template>
-  <SideMenu />
-  <NavMenu />
-  <router-view />
-  <Footer />
+  <div id="app-main">
+    <SideMenu />
+    <NavMenu />
+    <router-view />
+    <Footer />
+  </div>
 </template>
 
 <script>
 export default {
-  name: "App",    
+  name: "App",
+  data() {
+    return {
+      bg: this.$darkBlue,
+      rcolor: 'red',
+    }
+  },
   watch: {
     $route: {
       immediate: true,
@@ -29,10 +37,15 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+}
+
+#app-main {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: v-bind('$darkBlue');
+  background-image: linear-gradient(to bottom right, v-bind('$darkBlue'), #090d11);
+  color: v-bind('$grey');
 }
 
 body {

@@ -16,7 +16,7 @@ export default {
 
 <style scoped>
     #footer {
-        background-color: #2c3e50;
+        background-color: v-bind('$boldGreen');
         color: white;
         width: 100%;
         height: 10vh;
@@ -27,7 +27,7 @@ export default {
     }
 
     .copyright {
-        opacity: 0.7;
         text-align: center;
+        overflow: hidden;
     }
 </style>
