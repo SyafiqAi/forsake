@@ -18,6 +18,18 @@ app.component('Footer', Footer);
 import TextArea from './components/TextArea.vue';
 app.component('TextArea', TextArea);
 
+import SideMenu from './components/SideMenu.vue';
+app.component('SideMenu', SideMenu);
+
+import NavMenu from './components/NavMenu.vue';
+app.component('NavMenu', NavMenu);
+
+//#endregion
+
+//#region Colors
+
+app.config.globalProperties.$dark = 'hello'
+
 //#endregion
 
 app.mount('#app');
