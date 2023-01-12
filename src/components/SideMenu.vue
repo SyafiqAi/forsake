@@ -4,7 +4,12 @@
         @click="show=!show" 
         :style="`transform: rotate(${burgerAngle}deg);`"
     >
-        &#9776;
+        <div class="burger-icon">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
     </div>
     <div 
         class="sidemenu-main"
@@ -21,9 +26,18 @@ export default {
             show: false,
             burgerIconColor: '#2c3e50',
             visibility: 'hidden',
+
             burgerAngle: 0,
+            burgerMarginTop: '0',
+            burgerMarginLeft: '0',
         }
     },
+
+    mounted() {
+        console.log("hello");
+        this.setBurgerMargins();
+    },
+    
     methods: {
         isSmallScreen() {
             const small = 600;
@@ -35,8 +49,10 @@ export default {
             return false;
         },
 
+        //#region open / close menu functions
+
         openMenu() {
-            const sidemenuWidth = this.isSmallScreen() ? '100vw' : '30vw';
+            const sidemenuWidth = this.isSmallScreen() ? '100vw' : '500px';
             
             this.width = sidemenuWidth;
             this.burgerIconColor = 'white';
@@ -47,7 +63,15 @@ export default {
             this.width = '0';
             this.burgerIconColor = '#2c3e50';
             this.visibility = 'hidden';
-        }
+        },
+
+        //#endregion
+
+        setBurgerMargins() {
+            let margin = this.isSmallScreen() ? '3vh' : '3vh';
+            this.burgerMarginLeft = margin;
+            this.burgerMarginTop = margin;
+        },
         
     },
     watch: {
@@ -64,12 +88,31 @@ export default {
 .burger {
     position: absolute;
     font-size: 2em;
-    margin-left: 1vw;
     z-index: 999;
     transition: 0.5s;
     cursor: pointer;
+    display: block;
 
+
+    margin-top: v-bind(burgerMarginTop);
+    margin-left: v-bind(burgerMarginLeft);
     color: v-bind(burgerIconColor);
+
+    > .burger-icon {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        > div {
+            height: 4px;
+            width: 100%;
+            background-color: v-bind(burgerIconColor);
+            transition: 0.5s;
+        }
+        height: 30px;
+        width: 30px;
+    }
+
+
 }
 .sidemenu-main {
     position: fixed;
