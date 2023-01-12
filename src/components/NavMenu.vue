@@ -1,15 +1,8 @@
 <template>
   <nav>
-    <div class="burger" @click="toggleSideMenu" :style="'color:' + this.burgerColor">
-        <span v-html="sideMenuIcon"></span>
-    </div>
     <router-link to='/'>Home</router-link > | 
     <router-link to='/about'>About</router-link>
-    <div style="visibility: hidden; margin-left: auto;">
-        &#9776;
-    </div>
   </nav>
-    <SideMenu :show="showSideMenu"/>
 </template>
 
 <script>

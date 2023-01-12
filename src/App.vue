@@ -1,7 +1,7 @@
 <template>
+  <SideMenu />
   <NavMenu />
-  <!-- <SideMenu /> -->
-  <router-view  />
+  <router-view />
   <Footer />
 </template>
 
