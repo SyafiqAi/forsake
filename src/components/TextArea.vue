@@ -23,13 +23,18 @@ textarea {
     color: v-bind('$grey');
     font-weight: bold;
     background-color: v-bind('$darkBlue');
+    border: none;
+
+    
 
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 
     &:focus {
-    outline-color: v-bind('$lightGreen');
+      outline: none;
+      outline: 1px solid v-bind('$lightGreen');
+
     }
 }
 </style>
