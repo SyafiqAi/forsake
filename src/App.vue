@@ -1,10 +1,6 @@
 <template>
   <div id="app-main">
-  <div class="top-navbar">
     <NavMenu />
-  </div>
-    <SideMenu />
-    <!-- <NavMenu /> -->
     <router-view />
     <Footer />
   </div>
@@ -35,18 +31,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-.top-navbar {
-  height: 50px;
-  width: 100vw;
-  position: relative;
-  background-color: v-bind('$darkDarkBlue');
-  > button {
-    position: absolute;
-    right: 0;
-  }
-}
-
 #app-main {
   display: flex;
   flex-direction: column;

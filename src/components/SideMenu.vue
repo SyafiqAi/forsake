@@ -1,32 +1,34 @@
 <template>
-    <div 
-        class='burger' 
-        @click="toggleShow()" 
-        :style="`transform: rotate(${burgerAngle}deg);`"
-    >
-        <div class="burger-icon">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
+    <div>
+        <div 
+            class='burger' 
+            @click="toggleShow()" 
+            :style="`transform: rotate(${burgerAngle}deg);`"
+        >
+            <div class="burger-icon">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
 
-    </div>
-    <div 
-        class="sidemenu-main"
-        :style="'width:' + width + ';' + 'visibility:' + visibility"
-    >
-    </div>
-    <div 
-        class="sidemenu-background-overlay"
-        :style="'visibility:' + visibility"
-        @click="show=false"
-    >
+        </div>
+        <div 
+            class="sidemenu-main"
+            :style="'width:' + width + ';' + 'visibility:' + visibility"
+        >
+        </div>
+        <div 
+            class="sidemenu-background-overlay"
+            :style="'visibility:' + visibility"
+            @click="show=false"
+        >
+        </div>
     </div>
 </template>
 
 <script>
 export default {
-    props: ['toggle'],
+    props: ['close'],
     data() {
         return {
             width: '0',
@@ -75,8 +77,8 @@ export default {
         
     },
     watch: {
-        toggle() {
-            this.toggleShow();
+        close() {
+            this.show = false;
         },
         show() {
             this.show ? this.openMenu() : this.closeMenu();
