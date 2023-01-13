@@ -29,6 +29,7 @@
 <script>
 export default {
     props: ['close'],
+    emits: ['toggle'],
     data() {
         return {
             width: '0',
@@ -60,6 +61,7 @@ export default {
             this.burgerIconColor = this.$boldGreen;
             this.visibility = 'visible';
             this.opacity = 0.5;
+            this.$emit('toggle');
         },
 
         closeMenu() {
@@ -67,6 +69,7 @@ export default {
             this.burgerIconColor = this.$grey;
             this.visibility = 'hidden';
             this.opacity = 0;
+            this.$emit('toggle');
         },
 
         toggleShow() {

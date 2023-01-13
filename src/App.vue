@@ -1,6 +1,6 @@
 <template>
   <div id="app-main">
-    <NavMenu />
+    <NavMenu @toggle="sidemenuToggled"/>
     <router-view />
     <Footer />
   </div>
@@ -9,6 +9,11 @@
 <script>
 export default {
   name: "App",
+  data() {
+    return {
+      preventScroll: false,
+    }
+  },
   watch: {
     $route: {
       immediate: true,
@@ -16,7 +21,18 @@ export default {
         document.title = to.name || 'Forsake';
       }
     },
+  },
+  methods: {
+    sidemenuToggled() {
+      this.preventScroll = !this.preventScroll;
+      let body = document.getElementsByTagName("BODY")[0];
+      if(this.preventScroll){
+        body.classList.add('noScroll');
+      } else {
+        body.classList.remove('noScroll');
+      }
     }
+  }
 
 };
 </script>
@@ -38,6 +54,10 @@ export default {
   background-color: v-bind('$darkBlue');
   background-image: linear-gradient(to bottom right, v-bind('$darkBlue'), v-bind('$darkDarkBlue'));
   color: v-bind('$grey');
+}
+
+.noScroll {
+  overflow: hidden;
 }
 
 body {

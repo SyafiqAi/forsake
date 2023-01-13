@@ -5,12 +5,13 @@
       <div>|</div>
       <router-link @click="close=!close" to='/about'>About</router-link>
     </nav>
-    <SideMenu :close="close"/>
+    <SideMenu :close="close" @toggle="$emit('toggle')"/>
   </div>
 </template>
 
 <script>
 export default {
+  emits: ['toggle'],
   data() {
     return {
       close: false,
