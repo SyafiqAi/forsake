@@ -16,6 +16,12 @@
         :style="'width:' + width + ';' + 'visibility:' + visibility"
     >
     </div>
+    <div 
+        class="sidemenu-background-overlay"
+        :style="'visibility:' + visibility"
+        @click="show=false"
+    >
+    </div>
 </template>
 
 <script>
@@ -26,7 +32,7 @@ export default {
             show: false,
             burgerIconColor: this.$grey,
             visibility: 'hidden',
-
+            opacity: 0,
             burgerAngle: 0,
         }
     },
@@ -50,13 +56,15 @@ export default {
             this.width = sidemenuWidth;
             this.burgerIconColor = this.$boldGreen;
             this.visibility = 'visible';
+            this.opacity = 0.5;
         },
 
         closeMenu() {
             this.width = '0';
             this.burgerIconColor = this.$grey;
             this.visibility = 'hidden';
-        },
+            this.opacity = 0;
+        }
 
         //#endregion
         
@@ -64,7 +72,7 @@ export default {
     watch: {
         show() {
             this.show ? this.openMenu() : this.closeMenu();
-            this.burgerAngle = this.burgerAngle > 0 ? 0 : 360;
+            // this.burgerAngle = this.burgerAngle > 0 ? 0 : 360;
         },
 
     }
@@ -76,7 +84,7 @@ export default {
     position: absolute;
     font-size: 2em;
     z-index: 999;
-    transition: 0.5s;
+    transition: 0.3s;
     cursor: pointer;
     display: block;
 
@@ -88,17 +96,17 @@ export default {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        height: 25px;
+        width: 30px;
         > div {
-            height: 4px;
+            height: 0.8px;
             width: 100%;
             background-color: v-bind(burgerIconColor);
-            transition: 0.5s;
+            transition: 0.3s;
         }
         &:hover div {
             background-color: v-bind('$lightGreen');
         }
-        height: 30px;
-        width: 30px;
     }
 
 
@@ -109,12 +117,21 @@ export default {
     background-color: v-bind('$darkBlue');
     font-size: 3em;
     color: white;
-    transition: 0.5s;
+    transition: 0.3s;
     z-index: 998;
     overflow-x: hidden;
     border-radius: 0 5px 5px 0;
     box-shadow: 0px 0px 40px #000000;
     // background-image: linear-gradient(to top left, v-bind('$darkBlue'), #090d11);
+}
+.sidemenu-background-overlay {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 997;
+    background-color: black;
+    transition: 0.3s;
+    opacity: v-bind('opacity');
 }
 
 </style>
