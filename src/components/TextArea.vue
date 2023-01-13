@@ -23,7 +23,8 @@ textarea {
     color: v-bind('$grey');
     font-weight: bold;
     background-color: v-bind('$darkBlue');
-    border: none;
+    border: 1px solid v-bind('$grey');
+
 
     
 
@@ -33,6 +34,7 @@ textarea {
 
     &:focus {
       outline: none;
+      border: 1px solid #ffffff00;
       outline: 1px solid v-bind('$lightGreen');
 
     }
