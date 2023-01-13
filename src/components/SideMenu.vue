@@ -3,7 +3,7 @@
         <div 
             class='burger' 
             @click="toggleShow()" 
-            :style="`transform: rotate(${burgerAngle}deg);`"
+            :style="`transform: rotate(${burgerAngle}deg);` + burgerInlineStyles"
         >
             <div class="burger-icon">
                 <div></div>
@@ -14,7 +14,7 @@
         </div>
         <div 
             class="sidemenu-main"
-            :style="'width:' + width + ';' + 'visibility:' + visibility"
+            :style="'width:' + width + ';' + 'visibility:' + visibility + ';' + sidemenuInlineStyles"
         >
         </div>
         <div 
@@ -71,10 +71,17 @@ export default {
 
         toggleShow() {
             this.show=!this.show;
-        }
+        },
 
         //#endregion
-        
+
+        isMobile() {
+            if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                return true
+            } else {
+                return false
+            }
+        }
     },
     watch: {
         close() {
@@ -85,6 +92,24 @@ export default {
             // this.burgerAngle = this.burgerAngle > 0 ? 0 : 360;
         },
 
+    },
+    computed: {
+        burgerInlineStyles() {
+            let styles = ''
+            if(this.isMobile()) {
+                styles += 'right: 0; margin-right: 12.5px';
+            } else {
+                styles += 'margin-left: 12.5px';
+            }
+            return styles;
+        },
+        sidemenuInlineStyles() {
+            let styles = '';
+            if(this.isMobile()){
+                styles += 'right:0';
+            }
+            return styles;
+        },
     }
 }
 </script>
@@ -100,7 +125,9 @@ export default {
 
 
     margin-top: 12.5px;
-    margin-left: 12.5px;
+
+    // right: 0;
+    // margin-right: 12.5px;
 
     > .burger-icon {
         display: flex;
@@ -123,6 +150,7 @@ export default {
 }
 .sidemenu-main {
     position: fixed;
+    // right: 0;
     height: calc(100% - 50px);
     bottom: 0;
     background-color: v-bind('$darkBlue');
@@ -131,7 +159,6 @@ export default {
     transition: 0.3s;
     z-index: 998;
     overflow-x: hidden;
-    border-radius: 0 5px 5px 0;
     box-shadow: 0px 0px 40px #000000;
     // background-image: linear-gradient(to top left, v-bind('$darkBlue'), #090d11);
 }
