@@ -1,6 +1,7 @@
 <template>
   <nav>
-    <router-link to='/'>Home</router-link > | 
+    <router-link to='/'>Home</router-link >
+    <div>|</div>
     <router-link to='/about'>About</router-link>
   </nav>
 </template>
@@ -13,20 +14,16 @@ export default {
 <style lang='scss' scoped>
 
 nav {
-  padding: 15px;
+  color: v-bind('$grey');
+  width: 100vw;
+  height: 100%;
+  
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
 
-  > .burger {
-    font-size: 2em;
-    margin-right: auto;
-    cursor: pointer;
-    z-index: 999;
-    transition: 0.5s;
-  }
-
+  position: absolute;
+  
   > a {
     margin: auto 10px;
     font-weight: bold;
@@ -38,12 +35,6 @@ nav {
     &:hover {
       color: v-bind('$lightGreen');
     }
-  }
-
-  .divider {
-    background-color: #2c3e50;
-    width: 1px;
-    height: 1em;
   }
 }
 </style>

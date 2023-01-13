@@ -1,7 +1,7 @@
 <template>
     <div 
         class='burger' 
-        @click="show=!show" 
+        @click="toggleShow()" 
         :style="`transform: rotate(${burgerAngle}deg);`"
     >
         <div class="burger-icon">
@@ -26,6 +26,7 @@
 
 <script>
 export default {
+    props: ['toggle'],
     data() {
         return {
             width: '0',
@@ -64,12 +65,19 @@ export default {
             this.burgerIconColor = this.$grey;
             this.visibility = 'hidden';
             this.opacity = 0;
+        },
+
+        toggleShow() {
+            this.show=!this.show;
         }
 
         //#endregion
         
     },
     watch: {
+        toggle() {
+            this.toggleShow();
+        },
         show() {
             this.show ? this.openMenu() : this.closeMenu();
             // this.burgerAngle = this.burgerAngle > 0 ? 0 : 360;
@@ -89,8 +97,8 @@ export default {
     display: block;
 
 
-    margin-top: 2vh;
-    margin-left: 2vh;
+    margin-top: 12.5px;
+    margin-left: 12.5px;
 
     > .burger-icon {
         display: flex;
@@ -113,7 +121,8 @@ export default {
 }
 .sidemenu-main {
     position: fixed;
-    height: 100%;
+    height: calc(100% - 50px);
+    bottom: 0;
     background-color: v-bind('$darkBlue');
     font-size: 3em;
     color: white;
@@ -126,8 +135,9 @@ export default {
 }
 .sidemenu-background-overlay {
     position: fixed;
-    height: 100%;
+    height: calc(100% - 50px);
     width: 100%;
+    bottom: 0;
     z-index: 997;
     background-color: black;
     transition: 0.3s;

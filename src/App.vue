@@ -1,7 +1,10 @@
 <template>
   <div id="app-main">
-    <SideMenu />
+  <div class="top-navbar">
     <NavMenu />
+  </div>
+    <SideMenu />
+    <!-- <NavMenu /> -->
     <router-view />
     <Footer />
   </div>
@@ -10,12 +13,6 @@
 <script>
 export default {
   name: "App",
-  data() {
-    return {
-      bg: this.$darkBlue,
-      rcolor: 'red',
-    }
-  },
   watch: {
     $route: {
       immediate: true,
@@ -39,12 +36,23 @@ export default {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.top-navbar {
+  height: 50px;
+  width: 100vw;
+  position: relative;
+  background-color: v-bind('$darkDarkBlue');
+  > button {
+    position: absolute;
+    right: 0;
+  }
+}
+
 #app-main {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: /*100vh;*/ calc(100vh);
   background-color: v-bind('$darkBlue');
-  background-image: linear-gradient(to bottom right, v-bind('$darkBlue'), #090d11);
+  background-image: linear-gradient(to bottom right, v-bind('$darkBlue'), v-bind('$darkDarkBlue'));
   color: v-bind('$grey');
 }
 

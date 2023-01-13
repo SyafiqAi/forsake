@@ -30,6 +30,7 @@ app.component('NavMenu', NavMenu);
 
 app.config.globalProperties.$white = '#FFFFFF';
 app.config.globalProperties.$darkBlue = '#17222DFF';
+app.config.globalProperties.$darkDarkBlue = '#090D11';
 app.config.globalProperties.$boldBlue = '#1DCDFEFF';
 app.config.globalProperties.$lightBlue = '#34F0F5FF';
 app.config.globalProperties.$boldGreen = '#21D0B3FF';
