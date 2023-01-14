@@ -8,7 +8,7 @@
       </nav>
     </div>
     <div class="sidemenu-container">
-      <SideMenu />
+      <!-- <SideMenu /> -->
     </div>
   </div>
 </template>
@@ -25,7 +25,7 @@ export default {
   min-height: 50px;
   max-height: 50px;
   width: 100%;
-  position: relative;
+  position: absolute;
   background-color: v-bind('$darkDarkBlue');
   display: flex;
   justify-content: center;

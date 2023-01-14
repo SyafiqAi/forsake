@@ -165,7 +165,7 @@ export default {
 
 }
 .sidemenu-main {
-    position: fixed;
+    position: absolute;
     // right: 0;
     // height: calc(100% - 50px);
     height: 100vh;
@@ -180,7 +180,7 @@ export default {
     // background-image: linear-gradient(to top left, v-bind('$darkBlue'), #090d11);
 }
 .sidemenu-background-overlay {
-    position: fixed;
+    position: absolute;
     // height: calc(100% - 50px);
     height: 100vh;
     width: 100%;

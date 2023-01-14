@@ -1,6 +1,8 @@
 <template>
   <div id="app-main">
     <NavMenu />
+    <SideMenu />
+    <div class="nav-padding"></div>
     <router-view />
     <Footer />
   </div>
@@ -45,6 +47,10 @@ export default {
   color: v-bind('$grey');
   overflow: auto;
   height: 100vh;
+
+  > .nav-padding {
+    height: 50px;
+  }
 
 }
 
