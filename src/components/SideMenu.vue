@@ -154,7 +154,8 @@ export default {
 .sidemenu-main {
     position: fixed;
     // right: 0;
-    height: calc(100% - 50px);
+    // height: calc(100% - 50px);
+    height: 100vh;
     bottom: 0;
     background-color: v-bind('$darkBlue');
     font-size: 3em;
@@ -167,7 +168,8 @@ export default {
 }
 .sidemenu-background-overlay {
     position: fixed;
-    height: calc(100% - 50px);
+    // height: calc(100% - 50px);
+    height: 100vh;
     width: 100%;
     bottom: 0;
     z-index: 997;

@@ -23,7 +23,8 @@ textarea {
     color: v-bind('$grey');
     font-weight: bold;
     background-color: v-bind('$darkBlue');
-    border: 1px solid v-bind('$grey');
+    outline: 1px solid v-bind('$grey');
+    border: none;
 
 
     
@@ -34,9 +35,17 @@ textarea {
 
     &:focus {
       outline: none;
-      border: 1px solid #ffffff00;
+      border: none;
+      // border: 1px solid #ffffff00;
       outline: 1px solid v-bind('$lightGreen');
 
     }
 }
+
+::-webkit-scrollbar {
+    background: transparent; /* make scrollbar transparent */
+    width: 0px;
+    // border-radius: 10px;
+}
+
 </style>

@@ -4,9 +4,9 @@
     <div class="tarea-container">
       <TextArea v-model="formula" />
     </div>
-    <br />
-    <br />
 
+    <br /><br />
+    
     <vue-mathjax :formula="formula" />
     <br />
     

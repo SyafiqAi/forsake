@@ -2,25 +2,19 @@
   <div class="top-navbar">
     <div class="nav-container">
       <nav>
-        <router-link @click="close=!close" to='/'>Home</router-link>
+        <router-link to='/'>Home</router-link>
         <div>|</div>
-        <router-link @click="close=!close" to='/about'>About</router-link>
+        <router-link to='/about'>About</router-link>
       </nav>
     </div>
     <div class="sidemenu-container">
-      <SideMenu :close="close" @toggle="$emit('toggle')"/>
+      <SideMenu />
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  emits: ['toggle'],
-  data() {
-    return {
-      close: false,
-    }
-  }
 }
 </script>
 
@@ -28,7 +22,8 @@ export default {
 
 
 .top-navbar {
-  height: 50px;
+  min-height: 50px;
+  max-height: 50px;
   width: 100%;
   position: relative;
   background-color: v-bind('$darkDarkBlue');
@@ -42,6 +37,7 @@ export default {
     justify-content: center;
     align-items: center;
     > nav {
+      z-index: 10;
       color: v-bind('$grey');
       // width: 100vw;
       // height: 100%;
