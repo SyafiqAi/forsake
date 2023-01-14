@@ -49,7 +49,7 @@ export default {
   height: 100vh;
 
   > .nav-padding {
-    height: 50px;
+    min-height: 50px;
   }
 
 }
