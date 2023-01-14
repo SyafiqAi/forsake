@@ -1,8 +1,7 @@
 <template>
   <div id="app-main">
-    <NavMenu />
-    <SideMenu />
-    <div class="nav-padding"></div>
+    <NavMenu @burgerclick="toggle=!toggle"/>
+    <SideMenu :toggle="toggle"/>
     <router-view />
     <Footer />
   </div>
@@ -14,6 +13,7 @@ export default {
   data() {
     return {
       preventScroll: false,
+      toggle: false,
     }
   },
   watch: {
@@ -47,11 +47,6 @@ export default {
   color: v-bind('$grey');
   overflow: auto;
   height: 100vh;
-
-  > .nav-padding {
-    min-height: 50px;
-  }
-
 }
 
 ::-webkit-scrollbar {

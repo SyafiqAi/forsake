@@ -7,14 +7,25 @@
         <router-link to='/about'>About</router-link>
       </nav>
     </div>
-    <div class="sidemenu-container">
-      <!-- <SideMenu /> -->
+    <div class="burger-icon-container">
+      <BurgerIcon @click="$emit('burgerclick')" />
     </div>
   </div>
 </template>
 
 <script>
+import {isMobile} from '@/modules/utilities.js';
 export default {
+  emits: ['burgerclick'],
+  computed: {
+    justifyBurger() {
+      if(isMobile()) {
+        return 'right';
+      } else {
+        return 'left';
+      }
+    }
+  }
 }
 </script>
 
@@ -25,10 +36,8 @@ export default {
   min-height: 50px;
   max-height: 50px;
   width: 100%;
-  position: absolute;
+  position: relative;
   background-color: v-bind('$darkDarkBlue');
-  display: flex;
-  justify-content: center;
   > .nav-container {
     width: 100%;
     height: 100%;
@@ -39,13 +48,10 @@ export default {
     > nav {
       z-index: 10;
       color: v-bind('$grey');
-      // width: 100vw;
-      // height: 100%;
       
       display: flex;
       justify-content: center;
       align-items: center;
-  
       
       > a {
         margin: auto 10px;
@@ -61,10 +67,15 @@ export default {
       }
     }
   }
-  > .sidemenu-container {
+  > .burger-icon-container {
+    display: flex;
+    justify-content: v-bind('justifyBurger');
     position: absolute;
     width: 100%;
     height: 100%;
   }
+}
+:deep(.burger-icon) {
+  padding: 12.5px;
 }
 </style>

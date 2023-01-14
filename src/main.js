@@ -24,6 +24,9 @@ app.component('SideMenu', SideMenu);
 import NavMenu from './components/NavMenu.vue';
 app.component('NavMenu', NavMenu);
 
+import BurgerIcon from './components/BurgerIcon.vue';
+app.component('BurgerIcon', BurgerIcon);
+
 //#endregion
 
 //#region Colors
