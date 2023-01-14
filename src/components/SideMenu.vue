@@ -2,7 +2,6 @@
     <div>
         <div 
             class="sidemenu-main"
-            :style="'width:' + width + ';' + 'visibility:' + visibility + ';' + sidemenuInlineStyles"
         >
             <div class="burger-icon-container"><BurgerIcon @click="show=false"/></div>
             <div class="list">
@@ -25,7 +24,6 @@
         </div>
         <div 
             class="sidemenu-background-overlay"
-            :style="'visibility:' + visibility"
             @click="show=false"
         >
         </div>
@@ -36,22 +34,31 @@
 import {isMobile} from '@/modules/utilities.js';
 export default {
     props: ['toggle'],
-    // emits: ['toggle'],
     data() {
         return {
-            width: '0',
-            // width: '500px',
+            width: '100%',
             show: false,
-            burgerIconColor: this.$grey,
             visibility: 'hidden',
-            // visibility: 'visible',
             opacity: 0,
             burgerAngle: 0,
+            hidePosition: '0',
+            transform: '-100%',
+            justifyBurger: '',
         }
     },
 
     mounted() {
-        // this.show=!this.show;
+        if(isMobile()) {
+            this.width = '100vw';
+            this.hidePosition = '100%';
+            this.transform = this.hidePosition;
+            this.justifyBurger = 'right';
+        } else {
+            this.width = '500px';
+            this.hidePosition = '-100%';
+            this.transform = this.hidePosition;
+            this.justifyBurger = 'left';
+        }
     },
     
     methods: {
@@ -70,19 +77,15 @@ export default {
         openMenu() {
             const sidemenuWidth = this.isSmallScreen() ? '100vw' : '500px';
             
-            this.width = sidemenuWidth;
-            this.burgerIconColor = this.$boldGreen;
             this.visibility = 'visible';
             this.opacity = 0.5;
-            // this.$emit('toggle');
+            this.transform = '0%';
         },
 
         closeMenu() {
-            this.width = '0';
-            this.burgerIconColor = this.$grey;
             this.visibility = 'hidden';
             this.opacity = 0;
-            // this.$emit('toggle');
+            this.transform = this.hidePosition;
         },
 
         //#endregion
@@ -93,26 +96,9 @@ export default {
         },
         show() {
             this.show ? this.openMenu() : this.closeMenu();
-            // this.burgerAngle = this.burgerAngle > 0 ? 0 : 360;
         },
 
     },
-    computed: {
-        sidemenuInlineStyles() {
-            let styles = '';
-            if(isMobile()){
-                styles += 'right:0';
-            }
-            return styles;
-        },
-        justifyBurger() {
-            if(isMobile()) {
-                return 'right';
-            } else {
-                return 'left';
-            }
-        }
-    }
 }
 </script>
 
@@ -123,6 +109,9 @@ export default {
     height: 100vh;
     background-color: v-bind('$darkBlue');
     color: white;
+    width: v-bind('width');
+    transform: translateX(v-bind('transform'));
+    visibility: v-bind('visibility');
     transition: 0.3s;
     z-index: 999;
     overflow: hidden;
@@ -159,6 +148,7 @@ export default {
     z-index: 998;
     background-color: black;
     transition: 0.3s;
+    visibility: v-bind('visibility');
     opacity: v-bind('opacity');
 }
 :deep(.burger-icon) {
