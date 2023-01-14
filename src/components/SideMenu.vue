@@ -5,6 +5,23 @@
             :style="'width:' + width + ';' + 'visibility:' + visibility + ';' + sidemenuInlineStyles"
         >
             <div class="burger-icon-container"><BurgerIcon @click="show=false"/></div>
+            <div class="list">
+                <div class="item">Item</div>
+                <div class="item">Item</div>
+                <div class="item">Item</div>
+                <div class="item">Item</div>
+                <div class="item">Item</div>
+                <div class="item">Item</div>
+                <div class="item">Item</div>
+                <div class="item">Item3</div>
+                <div class="item">Item 2</div>
+                <div class="item">Item1</div>
+                <div class="item">Item</div>
+                <div class="item">Item3</div>
+                <div class="item">Item 2</div>
+                <div class="item">Item1</div>
+            </div>
+            
         </div>
         <div 
             class="sidemenu-background-overlay"
@@ -23,12 +40,18 @@ export default {
     data() {
         return {
             width: '0',
+            // width: '500px',
             show: false,
             burgerIconColor: this.$grey,
             visibility: 'hidden',
+            // visibility: 'visible',
             opacity: 0,
             burgerAngle: 0,
         }
+    },
+
+    mounted() {
+        // this.show=!this.show;
     },
     
     methods: {
@@ -62,15 +85,11 @@ export default {
             // this.$emit('toggle');
         },
 
-        toggleShow() {
-            this.show=!this.show;
-        },
-
         //#endregion
     },
     watch: {
         toggle() {
-            this.toggleShow();
+            this.show=!this.show;
         },
         show() {
             this.show ? this.openMenu() : this.closeMenu();
@@ -106,7 +125,7 @@ export default {
     color: white;
     transition: 0.3s;
     z-index: 999;
-    overflow-x: hidden;
+    overflow: hidden;
     box-shadow: 0px 0px 40px #000000;
     > .burger-icon-container {
         background-color: v-bind('$darkDarkBlue');
@@ -115,6 +134,22 @@ export default {
         display: flex;
         justify-content: v-bind('justifyBurger');
     }
+
+    > .list {
+        overflow: auto;
+        height: 100%;
+        > .item {
+            padding: 20px;
+            border: 1px solid v-bind('$darkDarkBlue');
+            &:hover {
+                color: v-bind('$darkBlue');
+                background-color: v-bind('$boldGreen');
+                cursor: pointer;
+            }
+        }
+    }
+
+    
 }
 .sidemenu-background-overlay {
     position: absolute;
