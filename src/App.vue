@@ -70,7 +70,7 @@ export default {
 
 body {
   margin: 0;
-  overflow: hidden;
+  // overflow: hidden;
 }
 
 #MathJax_Message {
