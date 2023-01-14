@@ -2,8 +2,10 @@
   <div id="footer">
     <div class="copyright">
       &copy; Syafiq 2023 
-      <br /><br />
+      <br />
       Thank you Mason.
+      <br />
+      V 1.0.1
     </div>
   </div>
 </template>

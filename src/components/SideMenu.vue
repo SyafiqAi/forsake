@@ -100,7 +100,7 @@ export default {
 <style lang="scss" scoped>
 .sidemenu-main {
     position: absolute;
-    bottom: 0;
+    top: 0;
     height: 100vh;
     background-color: v-bind('$darkBlue');
     color: white;
@@ -120,7 +120,7 @@ export default {
     position: absolute;
     height: 100vh;
     width: 100%;
-    bottom: 0;
+    top: 0;
     z-index: 998;
     background-color: black;
     transition: 0.3s;
