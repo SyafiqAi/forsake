@@ -16,6 +16,19 @@
             class="sidemenu-main"
             :style="'width:' + width + ';' + 'visibility:' + visibility + ';' + sidemenuInlineStyles"
         >
+        
+        <div 
+            class='burger' 
+            @click="toggleShow()" 
+            :style="`transform: rotate(${burgerAngle}deg);` + burgerInlineStyles"
+        >
+            <div class="burger-icon">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+        </div>
         </div>
         <div 
             class="sidemenu-background-overlay"
@@ -121,7 +134,7 @@ export default {
 .burger {
     position: absolute;
     font-size: 2em;
-    z-index: 999;
+    // z-index: 999;
     transition: 0.3s;
     cursor: pointer;
     display: block;
