@@ -4,7 +4,7 @@
         <div class="item-container" v-for="(route, index) in routes" :key='route.name'>
             <div class="item">
                 <router-link @click="$emit('linkclicked')" :to="{name: route.name}" class="item-text"> {{ route.menuName || route.name }} </router-link>
-                <div v-if="route.children" class="expand-arrow" @click="toggleAccordion(index)"> V </div>
+                <div v-if="route.children" class="expand-arrow prevent-select" @click="toggleAccordion($event,index)"> &#x25BC; </div>
             </div>
 
             <div class="subitem-list" ref="routes" style='height: 0;'>
@@ -22,17 +22,34 @@ export default {
     data() {
         return {
             routes: this.$router.options.routes,
+            arrowActive: [],
         }
     },
     methods: {
-        toggleAccordion(index) {
+        toggleAccordion(e, index) {
             let item = this.$refs.routes[index]
             let itemHeight = item.style.height;
             let scrollHeight = item.scrollHeight + 'px';
-            console.log("height: ", itemHeight);
 
             item.style.height = itemHeight === '0px' ? scrollHeight : '0px';
+            this.toggleArrow(e,index);
+
         },
+        toggleArrow(e,index) {
+            let upArrow = '\&#x25B2;';
+            let downArrow = '\&#x25BC;';
+
+            if(this.arrowActive[index] === undefined){
+                this.arrowActive[index] = false;
+            }
+
+            let active = this.arrowActive[index];
+
+            e.target.innerHTML = active ? downArrow : upArrow;
+
+            this.arrowActive[index] = !active;
+            
+        }
     }
 }
 </script>
@@ -50,20 +67,24 @@ export default {
                 > .item-text {
                     width: 100%;
                 }
-                > * {
+                > a {
                     padding: 20px;
+                    color: v-bind('$grey');
+                    text-decoration: none;
                     &:hover,  &.router-link-active {
                         color: v-bind('$darkBlue');
                         background-color: v-bind('$boldGreen');
                         cursor: pointer;
                     }
-                }
-                > a {
-                    color: v-bind('$grey');
-                    text-decoration: none;
-
                     &.router-link-active:hover{
                         background-color: v-bind('$lightGreen');
+                    }
+                }
+                > div {
+                    padding: 20px;
+                    &:hover{
+                        cursor: pointer;
+                        background-color: v-bind('$darkDarkBlue');
                     }
                 }
                 
@@ -93,5 +114,12 @@ export default {
             }
 
         }
+
+        .prevent-select {
+            -webkit-user-select: none; /* Safari */
+            -ms-user-select: none; /* IE 10 and IE 11 */
+            user-select: none; /* Standard syntax */
+        }
+
     }
 </style>
