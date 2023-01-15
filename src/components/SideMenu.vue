@@ -4,23 +4,7 @@
             class="sidemenu-main"
         >
             <div class="burger-icon-container"><BurgerIcon @click="show=false"/></div>
-            <div class="list">
-                <div class="item">Item</div>
-                <div class="item">Item</div>
-                <div class="item">Item</div>
-                <div class="item">Item</div>
-                <div class="item">Item</div>
-                <div class="item">Item</div>
-                <div class="item">Item</div>
-                <div class="item">Item3</div>
-                <div class="item">Item 2</div>
-                <div class="item">Item1</div>
-                <div class="item">Item</div>
-                <div class="item">Item3</div>
-                <div class="item">Item 2</div>
-                <div class="item">Item1</div>
-            </div>
-            
+            <SidemenuList @linkclicked="show=false"/>
         </div>
         <div 
             class="sidemenu-background-overlay"
@@ -75,8 +59,6 @@ export default {
         //#region open / close menu functions
 
         openMenu() {
-            const sidemenuWidth = this.isSmallScreen() ? '100vw' : '500px';
-            
             this.visibility = 'visible';
             this.opacity = 0.5;
             this.transform = '0%';
@@ -122,20 +104,6 @@ export default {
         width: 100%;
         display: flex;
         justify-content: v-bind('justifyBurger');
-    }
-
-    > .list {
-        overflow: auto;
-        height: 100%;
-        > .item {
-            padding: 20px;
-            border: 1px solid v-bind('$darkDarkBlue');
-            &:hover {
-                color: v-bind('$darkBlue');
-                background-color: v-bind('$boldGreen');
-                cursor: pointer;
-            }
-        }
     }
 
     

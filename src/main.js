@@ -18,11 +18,14 @@ app.component('Footer', Footer);
 import TextArea from './components/TextArea.vue';
 app.component('TextArea', TextArea);
 
-import SideMenu from './components/SideMenu.vue';
-app.component('SideMenu', SideMenu);
-
 import NavMenu from './components/NavMenu.vue';
 app.component('NavMenu', NavMenu);
+
+import Sidemenu from './components/Sidemenu.vue';
+app.component('Sidemenu', Sidemenu);
+
+import SidemenuList from './components/SidemenuList.vue';
+app.component('SidemenuList', SidemenuList);
 
 import BurgerIcon from './components/BurgerIcon.vue';
 app.component('BurgerIcon', BurgerIcon);
