@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="sidemenu">
         <div 
             class="sidemenu-main"
         >
@@ -26,7 +26,7 @@ export default {
             opacity: 0,
             burgerAngle: 0,
             hidePosition: '0',
-            transform: '-100%',
+            transform: '0',
             justifyBurger: '',
         }
     },
@@ -85,39 +85,47 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.sidemenu-main {
+.sidemenu{
     position: absolute;
-    top: 0;
     height: 100vh;
-    background-color: v-bind('$darkBlue');
-    color: white;
-    width: v-bind('width');
-    transform: translateX(v-bind('transform'));
+    width: 100vw;
+    overflow-x: hidden;
+    overflow-y: hidden;
     visibility: v-bind('visibility');
-    transition: 0.3s;
-    z-index: 999;
-    overflow: hidden;
-    box-shadow: 0px 0px 40px #000000;
-    > .burger-icon-container {
-        background-color: v-bind('$darkDarkBlue');
-        height: 50px;
-        width: 100%;
-        display: flex;
-        justify-content: v-bind('justifyBurger');
-    }
+    > .sidemenu-main {
+        position: absolute;
+        top: 0;
+        height: 100vh;
+        background-color: v-bind('$darkBlue');
+        color: white;
+        width: v-bind('width');
+        transform: translateX(v-bind('transform'));
+        visibility: v-bind('visibility');
+        transition: 0.3s;
+        z-index: 999;
+        overflow: hidden;
+        box-shadow: 0px 0px 40px #000000;
+        > .burger-icon-container {
+            background-color: v-bind('$darkDarkBlue');
+            height: 50px;
+            width: 100%;
+            display: flex;
+            justify-content: v-bind('justifyBurger');
+        }
 
-    
-}
-.sidemenu-background-overlay {
-    position: absolute;
-    height: 100vh;
-    width: 100%;
-    top: 0;
-    z-index: 998;
-    background-color: black;
-    transition: 0.3s;
-    visibility: v-bind('visibility');
-    opacity: v-bind('opacity');
+        
+    }
+    > .sidemenu-background-overlay {
+        position: absolute;
+        height: 100vh;
+        width: 100%;
+        top: 0;
+        z-index: 998;
+        background-color: black;
+        transition: 0.3s;
+        visibility: v-bind('visibility');
+        opacity: v-bind('opacity');
+    }
 }
 :deep(.burger-icon) {
     padding: 12.5px;
