@@ -1,7 +1,7 @@
 <template>
   <div id="app-main">
     <NavMenu @burgerclick="toggle=!toggle"/>
-    <Sidemenu :toggle="toggle"/>
+    <SidemenuV2 :toggle="toggle"/>
     <router-view />
     <Footer />
   </div>
