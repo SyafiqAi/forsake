@@ -67,7 +67,6 @@ body {
 
 .noscroll {
   height: 100vh;
-  overflow: hidden;
 }
 
 ::-webkit-scrollbar {
