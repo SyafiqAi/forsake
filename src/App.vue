@@ -70,27 +70,30 @@ body {
 
 .noscroll {
   height: 100vh;
+::-webkit-scrollbar {
+  width: 0;
+  }
 }
 
-// ::-webkit-scrollbar {
-//   width: 10px;
-//   }
+::-webkit-scrollbar {
+  width: 10px;
+  }
 
-//   /* Track */
-// ::-webkit-scrollbar-track {
-//   background: #242424; 
-//   }
+  /* Track */
+::-webkit-scrollbar-track {
+  background: #242424; 
+  }
   
-//   /* Handle */
-// ::-webkit-scrollbar-thumb {
-//     background: v-bind('$darkDarkBlue'); 
-//     background: #090D11; 
-//   }
+  /* Handle */
+::-webkit-scrollbar-thumb {
+    background: v-bind('$darkDarkBlue'); 
+    background: #090D11; 
+  }
 
-//   /* Handle on hover */
-// ::-webkit-scrollbar-thumb:hover {
-//   background: rgb(71, 71, 71); 
-// }
+  /* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(71, 71, 71); 
+}
 
 #MathJax_Message {
   display: none !important;
