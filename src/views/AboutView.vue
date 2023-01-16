@@ -38,8 +38,8 @@ export default {
   
   @media only screen and (max-width: 600px) {
     .math {
-      color: white;
       font-size: initial;
+      font-size: 2em;
     }
   }
 </style>
