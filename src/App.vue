@@ -70,12 +70,10 @@ body {
 
 .noscroll {
   height: 100vh;
-::-webkit-scrollbar {
-  width: 0;
-  }
 }
 
-::-webkit-scrollbar {
+@media only screen and (min-width: 600px) {
+  ::-webkit-scrollbar {
   width: 10px;
   }
 
@@ -90,9 +88,11 @@ body {
     background: #090D11; 
   }
 
-  /* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: rgb(71, 71, 71); 
+    /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(71, 71, 71); 
+  }
+
 }
 
 #MathJax_Message {
