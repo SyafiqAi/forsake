@@ -65,7 +65,7 @@ export default {
 
 body {
   margin: 0;
-  overflow: overlay;
+  // overflow: overlay;
 }
 
 .noscroll {
