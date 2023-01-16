@@ -93,7 +93,7 @@ export default {
     margin: 0;
     padding: 0;
     height: 100vh;
-    width: 100%;
+    width: 100vw;
     overflow-x: hidden;
     overflow-y: hidden;
     visibility: v-bind('visibility');
