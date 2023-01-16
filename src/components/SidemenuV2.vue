@@ -33,17 +33,17 @@ export default {
     },
 
     mounted() {
-        // if(isMobile()) {
-        //     this.width = '100vw';
-        //     this.hidePosition = '100%';
-        //     this.transform = this.hidePosition;
-        //     this.justifyBurger = 'right';
-        // } else {
+        if(isMobile()) {
+            // this.width = '100vw';
+            this.hidePosition = '100%';
+            this.transform = this.hidePosition;
+            this.justifyBurger = 'right';
+        } else {
             this.width = '500px';
             this.hidePosition = '-100%';
             this.transform = this.hidePosition;
             this.justifyBurger = 'left';
-        // }
+        }
     },
     
     methods: {
