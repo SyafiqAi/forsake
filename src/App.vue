@@ -1,7 +1,6 @@
 <template>
     <NavMenu @burgerclick="toggle=!toggle"/>
     <SidemenuV2 :toggle="toggle" @toggle="toggled"/>
-    <button @click="toggled(true)">Toggle</button>
     <router-view />
     <Footer />
 </template>
@@ -25,7 +24,6 @@ export default {
   },
   methods: {
     toggled(menuIsOpen) {
-      console.log("toggle");
       let app = document.getElementById('app');
       let body = document.getElementsByTagName('body')[0];
       if(menuIsOpen) {
