@@ -88,7 +88,8 @@ export default {
 
 <style lang="scss" scoped>
 .sidemenu{
-    position: absolute;
+    position: fixed;
+    z-index: 999;
     top: 0;
     margin: 0;
     padding: 0;
