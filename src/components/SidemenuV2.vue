@@ -34,7 +34,7 @@ export default {
 
     mounted() {
         if(isMobile()) {
-            // this.width = '100vw';
+            this.width = '100vw';
             this.hidePosition = '100%';
             this.transform = this.hidePosition;
             this.justifyBurger = 'right';
