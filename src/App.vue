@@ -29,10 +29,10 @@ export default {
       let app = document.getElementById('app');
       let body = document.getElementsByTagName('body')[0];
       if(menuIsOpen) {
-        // body.classList.add('noscroll');
+        body.classList.add('noscroll');
         // app.classList.add('noscroll');
       } else {
-        // body.classList.remove('noscroll');
+        body.classList.remove('noscroll');
         // app.classList.remove('noscroll');
       }
     }
