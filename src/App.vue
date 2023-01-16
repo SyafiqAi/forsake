@@ -24,12 +24,14 @@ export default {
   },
   methods: {
     toggled(menuIsOpen) {
-      let body = document.getElementById('app');
-      // let body = document.getElementsByTagName('body')[0];
+      let app = document.getElementById('app');
+      let body = document.getElementsByTagName('body')[0];
       if(menuIsOpen) {
         body.classList.add('noscroll');
+        app.classList.add('noscroll');
       } else {
         body.classList.remove('noscroll');
+        app.classList.remove('noscroll');
       }
     }
   }
@@ -58,7 +60,7 @@ export default {
   color: #D9D9D9;
   min-height: 100vh;
 
-  // overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 body {
