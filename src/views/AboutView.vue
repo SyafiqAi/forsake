@@ -25,17 +25,19 @@ export default {
     text-align: center;
   }
   
-  :deep(.MathJax)  {
-    color: white;
-    font-size: 10em;
-  }
   .math {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 5em;
     background-color: v-bind('$boldGreen');
-    padding: 50px;
+    padding: 20px;
+    height: 3.5em;
   }
   
   @media only screen and (max-width: 600px) {
-    :deep(.MathJax)  {
+    .math {
       color: white;
       font-size: initial;
     }

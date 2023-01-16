@@ -1,10 +1,8 @@
 <template>
-  <div id="app-main">
     <NavMenu @burgerclick="toggle=!toggle"/>
-    <SidemenuV2 :toggle="toggle"/>
+    <SidemenuV2 :toggle="toggle" @toggle="toggled"/>
     <router-view />
     <Footer />
-  </div>
 </template>
 
 <script>
@@ -24,6 +22,16 @@ export default {
       }
     },
   },
+  methods: {
+    toggled(menuIsOpen) {
+      let body = document.getElementsByTagName('body')[0];
+      if(menuIsOpen) {
+        body.classList.add('noscroll');
+      } else {
+        body.classList.remove('noscroll');
+      }
+    }
+  }
 };
 </script>
 
@@ -41,18 +49,24 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-}
-#app-main {
   display: flex;
   flex-direction: column;
-  // min-height: /*100vh;*/ calc(100vh);
-  // background-color: white;
-  // background-color: v-bind('$grey');
-  // background-image: linear-gradient(to bottom right, v-bind('$darkBlue'), v-bind('$darkDarkBlue'));
+  // background-color: red;
   background-image: linear-gradient(to bottom right, hsl(198deg 37% 9%), hsl(0deg 0% 0%));
-  color: v-bind('$grey');
-  overflow: auto;
-  height: 100vh;
+  // color: v-bind('$grey');
+  color: #D9D9D9;
+  min-height: 100vh;
+
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  overflow: overlay;
+}
+
+.noscroll {
+  overflow: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -66,18 +80,13 @@ export default {
   
   /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: v-bind('$darkDarkBlue'); 
-    // background: rgb(0, 0, 0); 
+    background: v-bind('$darkDarkBlue'); 
+    background: #090D11; 
   }
 
   /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(71, 71, 71); 
-}
-
-body {
-  margin: 0;
-  // overflow: hidden;
 }
 
 #MathJax_Message {

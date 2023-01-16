@@ -18,9 +18,10 @@
 import {isMobile} from '@/modules/utilities.js';
 export default {
     props: ['toggle'],
+    emits: ['toggle'],
     data() {
         return {
-            width: '100%',
+            width: '100vw',
             show: false,
             visibility: 'hidden',
             opacity: 0,
@@ -78,6 +79,7 @@ export default {
         },
         show() {
             this.show ? this.openMenu() : this.closeMenu();
+            this.$emit('toggle',this.show);
         },
 
     },
@@ -87,8 +89,11 @@ export default {
 <style lang="scss" scoped>
 .sidemenu{
     position: absolute;
+    top: 0;
+    margin: 0;
+    padding: 0;
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     overflow-x: hidden;
     overflow-y: hidden;
     visibility: v-bind('visibility');
@@ -118,8 +123,9 @@ export default {
     > .sidemenu-background-overlay {
         position: absolute;
         height: 100vh;
-        width: 100%;
+        width: 100vw;
         top: 0;
+        left: 0;
         z-index: 998;
         background-color: black;
         transition: 0.3s;
