@@ -58,7 +58,7 @@ export default {
   color: #D9D9D9;
   min-height: 100vh;
 
-  overflow-x: hidden;
+  // overflow-x: hidden;
 }
 
 body {
