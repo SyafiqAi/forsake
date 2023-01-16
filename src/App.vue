@@ -24,8 +24,7 @@ export default {
   },
   methods: {
     toggled(menuIsOpen) {
-      let body = document.getElementById('app');
-      // let body = document.getElementsByTagName('body')[0];
+      let body = document.getElementsByTagName('body')[0];
       if(menuIsOpen) {
         body.classList.add('noscroll');
       } else {
@@ -63,12 +62,12 @@ export default {
 
 body {
   margin: 0;
-  // overflow: overlay;
+  overflow: overlay;
 }
 
 .noscroll {
   height: 100vh;
-  // overflow: hidden;
+  overflow: hidden;
 }
 
 ::-webkit-scrollbar {
