@@ -27,10 +27,10 @@ export default {
       let app = document.getElementById('app');
       let body = document.getElementsByTagName('body')[0];
       if(menuIsOpen) {
-        // body.classList.add('noscroll');
+        body.classList.add('noscroll');
         app.classList.add('noscroll');
       } else {
-        // body.classList.remove('noscroll');
+        body.classList.remove('noscroll');
         app.classList.remove('noscroll');
       }
     }
@@ -69,32 +69,32 @@ body {
 }
 
 .noscroll {
-  height: 100vh;
+  // height: 100vh;
+  overflow: hidden;
 }
 
-@media only screen and (min-width: 600px) {
-  ::-webkit-scrollbar {
-  width: 10px;
-  }
+::-webkit-scrollbar {
+width: 10px;
+}
 
-  /* Track */
+/* Track */
 ::-webkit-scrollbar-track {
-  background: #242424; 
-  }
-  
-  /* Handle */
-::-webkit-scrollbar-thumb {
-    background: v-bind('$darkDarkBlue'); 
-    background: #090D11; 
-  }
-
-    /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgb(71, 71, 71); 
-  }
-
+background: #242424; 
 }
 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: v-bind('$darkDarkBlue'); 
+  background: #090D11; 
+}
+
+  /* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(71, 71, 71); 
+  }
+
+
+  
 #MathJax_Message {
   display: none !important;
 }
