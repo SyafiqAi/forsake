@@ -61,11 +61,12 @@ export default {
   min-height: 100vh;
 
   overflow-x: hidden;
+  overflow-y: overlay;
 }
 
 body {
   margin: 0;
-  // overflow: overlay;
+  overflow: overlay;
 }
 
 .noscroll {
