@@ -28,10 +28,10 @@ export default {
       let body = document.getElementsByTagName('body')[0];
       if(menuIsOpen) {
         body.classList.add('noscroll');
-        app.classList.add('noscroll');
+        // app.classList.add('noscroll');
       } else {
         body.classList.remove('noscroll');
-        app.classList.remove('noscroll');
+        // app.classList.remove('noscroll');
       }
     }
   }
@@ -61,16 +61,16 @@ export default {
   min-height: 100vh;
 
   overflow-x: hidden;
-  overflow-y: overlay;
 }
 
 body {
   margin: 0;
   overflow: overlay;
+  overflow-x: hidden;
+  height: 100vh;
 }
 
 .noscroll {
-  // height: 100vh;
   overflow: hidden;
 }
 
