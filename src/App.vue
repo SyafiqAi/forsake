@@ -1,7 +1,6 @@
 <template>
     <NavMenu @burgerclick="toggle=!toggle"/>
     <SidemenuV2 :toggle="toggle" @toggle="toggled"/>
-    <button @click="toggled(true)"> Toggle </button>
     <router-view />
     <Footer />
 </template>
@@ -73,7 +72,7 @@ body {
 
 .noscroll {
   overflow: hidden;
-  // height: 100vh;
+  height: 100vh;
 }
 
 ::-webkit-scrollbar {
