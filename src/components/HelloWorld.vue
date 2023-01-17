@@ -7,7 +7,11 @@
 
     <br /><br />
     
-    <vue-mathjax :formula="formula" />
+    <div class="maths-container">
+      <div class="maths" @click="changeFormula()">
+        <vue-mathjax :formula="formula" />
+      </div>
+    </div>
     <br />
     
   </div>
@@ -18,9 +22,35 @@ export default {
   name: "HelloWorld",
   data() {
     return {
-      formula: '$$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}$$'
+      formulaList: [''],
+      formula: '',
+      index: 0,
     }
-  }
+  },
+  mounted() {
+    this.addFormulae();
+  },
+  methods: {
+    addFormulae() {
+      this.formulaList = [
+        '$$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}$$',
+        '$$e^x = \\sum\\limits_{n=0}^{\\infty} \\frac{x^n}{n!}$$',
+        '$$\\sin^2(\\theta)+\\cos^2(\\theta) = 1$$',
+        '$$f\'(x) = \\lim_{h \\rightarrow 0 } \\frac{f(x+h)-f(x)}{h}$$',
+        '$$\n\\det \\left( \\begin{bmatrix}\na & b \\\\\nc & d \\\\\n\\end{bmatrix} \\right)\n= ad - bc\n$$',
+      ];
+      this.index = Math.floor(Math.random() * this.formulaList.length);
+      this.formula = this.formulaList[this.index];
+    },
+    changeFormula() {
+      let randomIndex;
+      do {
+        randomIndex = Math.floor(Math.random() * this.formulaList.length);
+      } while (this.index === randomIndex); 
+      this.index = randomIndex;
+      this.formula = this.formulaList[this.index];
+    }
+  },
 };
 </script>
 
@@ -39,6 +69,23 @@ export default {
   @media only screen and (max-width: 600px) {
     .tarea-container {
       width: 80vw;
+    }
+  }
+
+  > .maths-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    > .maths {
+      font-size: 1.15em;
+      padding: 30px;
+      // border: 1px solid red;
+      border-radius: 10px;
+      &:hover {
+        cursor: pointer;
+        background-color: rgba(255, 255, 255, 0.02);
+        transition: 0.2s;
+      }
     }
   }
   
