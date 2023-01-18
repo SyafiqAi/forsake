@@ -100,4 +100,15 @@ background: #242424;
 #MathJax_Message {
   display: none !important;
 }
+
+.prevent-select {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+::selection {
+  background: v-bind('$boldGreen');
+}
+
 </style>

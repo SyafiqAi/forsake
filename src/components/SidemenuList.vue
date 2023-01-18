@@ -9,7 +9,7 @@
 
             <div class="subitem-list" ref="routes" style='height: 0;'>
                 <div class="sub item" v-for="subRoute in route.children" :key='subRoute.name'>
-                    <router-link @click="$emit('linkclicked')" :to="{name:subRoute.name}" class="item-text"> {{subRoute.name}}</router-link>
+                    <router-link v-if="subRoute.name !== '-'" @click="$emit('linkclicked')" :to="{name:subRoute.name}" class="item-text"> {{subRoute.name}}</router-link>
                 </div>
             </div>
         </div>
@@ -60,8 +60,8 @@ export default {
         height: calc(100% - 50px);
         .item-container {
             .item {
-                border: 1px solid v-bind('$darkDarkBlue');
-                margin-top: -1px;
+                // border: 1px solid v-bind('$darkDarkBlue');
+                // margin-top: -1px;
                 display: flex;
                 justify-content: space-between;
                 > .item-text {
@@ -108,18 +108,10 @@ export default {
                 margin-left: 40px;
                 background-color: v-bind('$darkDarkBlue');
                 // margin: 0 20px;
-                > .item {
-                    border: 1px solid v-bind('$darkBlue');
-                }
             }
 
         }
 
-        .prevent-select {
-            -webkit-user-select: none; /* Safari */
-            -ms-user-select: none; /* IE 10 and IE 11 */
-            user-select: none; /* Standard syntax */
-        }
 
     }
 </style>

@@ -3,7 +3,7 @@
     <h1>This is an about page</h1>
     
     <div class="math">
-      <vue-mathjax :formula="formula" />
+      <Math :formula="formula" />
     </div>
 
   </div>
@@ -13,7 +13,7 @@
 export default {
   data() {
     return {
-      formula: '$$e^x = \\sum\\limits_{n=0}^{\\infty} \\frac{x^n}{n!}$$'
+      formula: 'e^x = \\sum\\limits_{n=0}^{\\infty} \\frac{x^n}{n!}'
     }
   }
 }

@@ -15,6 +15,24 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue'),
+  },
+  {
+    path: '/basic-equations',
+    name: 'Basic',
+    redirect: '/basic-equations',
+    // component: () => import('../views/BasicEquationsView.vue'),
+    children: [
+      {
+        path: '',
+        name: '-',
+        component: () => import('../views/BasicEquationsView.vue'),
+      },
+      {
+        path: '/basic-equations/quadratic-equation',
+        name: 'Quadratic Equation',
+        component: () => import('../views/QuadraticEquationView.vue'),
+      }
+    ]
   }
 ]
 

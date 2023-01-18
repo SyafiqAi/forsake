@@ -7,9 +7,9 @@
 
     <br /><br />
     
-    <div class="maths-container">
+    <div class="maths-container prevent-select">
       <div class="maths" @click="changeFormula()">
-        <vue-mathjax :formula="formula" />
+        <Math :formula="formula" />
       </div>
     </div>
     <br />
@@ -29,18 +29,17 @@ export default {
   },
   mounted() {
     this.addFormulae();
+    this.changeFormula();
   },
   methods: {
     addFormulae() {
       this.formulaList = [
-        '$$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}$$',
-        '$$e^x = \\sum\\limits_{n=0}^{\\infty} \\frac{x^n}{n!}$$',
-        '$$\\sin^2(\\theta)+\\cos^2(\\theta) = 1$$',
-        '$$f\'(x) = \\lim_{h \\rightarrow 0 } \\frac{f(x+h)-f(x)}{h}$$',
-        '$$\n\\det \\left( \\begin{bmatrix}\na & b \\\\\nc & d \\\\\n\\end{bmatrix} \\right)\n= ad - bc\n$$',
+        'x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}',
+        'e^x = \\sum\\limits_{n=0}^{\\infty} \\frac{x^n}{n!}',
+        '\\sin^2(\\theta)+\\cos^2(\\theta) = 1',
+        'f\'(x) = \\lim_{h \\rightarrow 0 } \\frac{f(x+h)-f(x)}{h}',
+        '\\det \\left( \\begin{bmatrix}\na & b \\\\\nc & d \\\\\n\\end{bmatrix} \\right)\n= ad - bc',
       ];
-      this.index = Math.floor(Math.random() * this.formulaList.length);
-      this.formula = this.formulaList[this.index];
     },
     changeFormula() {
       let randomIndex;
