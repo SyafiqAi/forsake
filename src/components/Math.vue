@@ -1,9 +1,27 @@
 <template>
-  <math-jax :latex="formula" :block="true"/>
+  <span ref="katex"></span>
 </template>
 
 <script>
 export default {
     props: ['formula'],
+    mounted() {
+      this.renderFormula();
+    },
+    methods: {
+      renderFormula() {
+        let element = this.$refs.katex;
+        katex.render(this.formula, element, {
+          throwOnError: false,
+          displayMode: true,
+          strict: false,
+        });
+      }
+    },
+    watch: {
+      formula() {
+        this.renderFormula();
+      }
+    }
 }
 </script>

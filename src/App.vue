@@ -108,7 +108,8 @@ background: #242424;
 }
 
 ::selection {
-  background: v-bind('$boldGreen');
+  background: v-bind('$lightGreen');
+  color: v-bind('$darkBlue');
 }
 
 </style>
