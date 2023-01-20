@@ -24,7 +24,7 @@ const routes = [
     children: [
       {
         path: '',
-        name: '-',
+        name: 'Basic Equations',
         component: () => import('../views/BasicEquationsView.vue'),
       },
       {
