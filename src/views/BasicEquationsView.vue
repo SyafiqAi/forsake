@@ -1,5 +1,5 @@
 <template>
-    <h1 style="text-align: center;">"Basic Equations" page content</h1>
+    <h1 style="text-align: center;">Basic</h1>
 </template>
 
 <script>

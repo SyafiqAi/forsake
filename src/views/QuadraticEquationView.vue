@@ -2,17 +2,17 @@
     <div id="quadratic-equation-main">
         <h1>Quadratic Equation</h1>
         <!-- <TextArea /> -->
-        <div class="user-input-container" :key="key">
+        <div class="user-input-container">
             <div class="user-input-item">
-                <input v-model="a" ref="a" tabindex="1"/> <Math formula='x^2' /><Math formula='\quad + \quad' />
-                <input v-model="b" tabindex="2"/> <Math formula='x' /><Math formula='\quad + \quad' />
-                <input v-model="c" tabindex="3"/> <Math formula='\quad = \quad 0' />
+                <MathInput :invalidValues="[0,'-','']" v-model="a" ref="a" tabindex="1"/> <Math formula='x^2' /><Math formula=' + ' />
+                <MathInput :invalidValues="['-']" v-model="b" tabindex="2"/> <Math formula='x' /><Math formula=' + ' />
+                <MathInput :invalidValues="['-']" v-model="c" tabindex="3"/> <Math formula=' =  0' />
             </div>
-            <div class="answer">
-                <Math :formula='formula' />
-            </div>
-            <div class="answer">
-                <Math :formula='formula' />
+            <!-- <div>
+                {{ altSol }}
+            </div> -->
+            <div class="solution">
+                <Math :formula='altSol' />
             </div>
         </div>
     </div>
@@ -24,20 +24,182 @@ export default {
         return {
             a: 1,
             b: 1,
-            c: 1,
-
-            key: 0,
+            c: 4,
+            solution: [],
         }
     },
     mounted() {
-        this.$refs.a.focus();
+        this.$refs.a.$el.focus();
+        let s = this.$math.simplify('2a * sqrt(a)');
+        s = s.toString({implicit: 'hide'});
+        // s = s.toTex();
+        // console.log("iscoprime: ", this.isCoprime(6,4));
+    },
+    methods: {
+        convertFracToKatex(frac) {
+            // accepts a fraction in the form of a / b and returns \frac {a} {b}
+            frac = frac.toString();
+            if(!frac.includes('/')) {
+                return frac;
+            }
+            frac = frac.split('/');
+            let katexFrac = `\\frac {${frac[0]}} {${frac[1]}}`
+            return katexFrac;
+        },
+        convertSqrtToKatex(sqrt) {
+            if(sqrt.in === 1) 
+                return sqrt.out;
+            else if(sqrt.out === 1) 
+                return `\\sqrt{${sqrt.in}}`;
+            else return `${sqrt.out} \\sqrt{${sqrt.in}}`
+        },
+        sqrt(val) {
+
+            
+            let insideRoot = val;
+            let outsideRoot = 1;
+            let d = 2;
+            
+            let isNegative = insideRoot < 0;
+            if(isNegative) 
+                insideRoot = -insideRoot;
+            
+            while (d * d <= insideRoot) {
+                if(insideRoot % (d * d) === 0) {
+                    insideRoot /= d * d;
+                    outsideRoot *= d;
+                } else {
+                    d++;
+                }
+            }
+            if(isNegative)
+                insideRoot = -insideRoot;
+            return {
+                'in': insideRoot,
+                'out': outsideRoot,
+            }
+        },
+        isPerfectSquare(n) {
+            return Number.isInteger(Math.sqrt(n));
+        },
+        isCoprime(m,n) {
+            let simplify = this.$math.simplify(`${m} / ${n}`).toString();
+            let original = `${m} / ${n}`
+            console.log("simplify: ", simplify);
+            console.log("original: ", original);
+            return simplify === original;
+        },
+        determinantZero() {
+            this.solution.push(`
+                &= \\frac {${-this.b}} {${2 * this.a}} \\\\
+            `)
+            let final = this.$math.simplify(`${-this.b} / (2 * ${this.a})`)
+            final = final.toTex();
+            this.solution.push(`&= ${final}`);
+        },
+        determinantPositive() {
+            this.solution.push(`
+                &= \\frac {${-this.b} \\pm \\sqrt{${this.determinant}}} {${2 * this.a}} \\\\
+            `)
+            if(this.isPerfectSquare(this.determinant)){
+                this.solution.push(`
+                    &= \\frac {${-this.b} \\pm ${Math.sqrt(this.determinant)}} {${2 * this.a}} \\\\
+                `)
+                this.solution.push(`
+                    &= ${this.$math.simplify(`(${-this.b} + ${Math.sqrt(this.determinant)}) / ${2 * this.a}`)},
+                    ${this.$math.simplify(`(${-this.b} - ${Math.sqrt(this.determinant)}) / ${2 * this.a}`)}
+                `)
+            } else {
+                let sqrtDet = this.sqrt(this.determinant);
+                console.log('sqrtDet', sqrtDet);
+                let x = `\\sqrt{${sqrtDet.in}}`;
+                let right = this.$math.simplify(`(${sqrtDet.out} * x )`);
+                right = right.toTex();
+                right = right.replace('x', x);
+                console.log('right', right);
+                this.solution.push(`
+                    &= \\frac {${-this.b}} {${2 * this.a}} \\pm \\frac {${right}} {${2 * this.a}} \\\\
+                `)
+
+                if(sqrtDet.out > 1 && !this.isCoprime(sqrtDet.out, (2 * this.a))) {
+                    let left = this.$math.simplify(`${-this.b} / (2 * ${this.a})`).toTex();
+    
+                    right = this.$math.simplify(`(${sqrtDet.out} * x ) / (${this.a} * 2)`);
+                    console.log("right before totex: ", right.toString({implicit: 'hidden'}));
+                    right = right.toTex();
+                    console.log("right before replace; ",right);
+                    if(sqrtDet.in < 1) {
+                        x = `\\sqrt{${-sqrtDet.in}}`;
+                        right = right.replace('x', x);
+                        right += 'i'
+                    } else {
+                        right = right.replace('x', x);
+                    }
+                    console.log('right', right);
+                    this.solution.push(`
+                        &= ${left} \\pm ${right} \\\\
+                    `)
+                } else if(sqrtDet.in < 1) {
+                    this.solution.push(`
+                        &= \\frac {${-this.b}} {${2 * this.a}} \\pm \\frac {${right.replace('-','')}} {${2 * this.a}} i \\\\
+                    `)
+                }
+        
+            }
+        },
+        determinantNegative() {
+
+        }
     },
     computed: {
-        formula() {
-            let ans = parseInt(this.a) + parseInt(this.b) + parseInt(this.c);
-            return `x = {-${this.b} \\pm \\sqrt{${this.b}^2-4(${this.a})(${this.c})} \\over 2(${this.a})} \\\\ = ${ans}`;
+        altSol() {
+            this.solution = [];
+            let a = parseFloat(this.a);
+            let b = parseFloat(this.b);
+            let c = parseFloat(this.c);
+
+            let negativeB = b < 0;
+            
+            let ans1 = (-b + Math.sqrt(this.determinant)) / (2 * a);
+            let ans2 = (-b - Math.sqrt(this.determinant)) / (2 * a);
+
+            let secondLineP1 = this.$math.simplify(`-${b} / (2 * ${a})`);
+
+            let sqrtDeterminant = this.sqrt(this.determinant);
+            let secondLineP2 = this.$math.simplify(`(${sqrtDeterminant.out} ${(sqrtDeterminant.in === 1 ? '' : '*d')}) / (2 * ${a})`)
+
+            this.solution.push(`
+                x &= \\frac {-${negativeB ? `(${this.b})` : this.b} \\pm 
+                \\sqrt {${negativeB ? `(${this.b})` : this.b}^2 - 4 (${this.a}) (${this.c})}} 
+                {2(${this.a})} \\\\
+            `)
+            if(this.determinant === 0) {
+                this.determinantZero();
+            } else if (this.determinant > 0) {
+                this.determinantPositive();
+            } else {
+                this.determinantPositive();
+            }
+            
+            let altSol = '\\begin{align*}';
+            this.solution.forEach(line => {
+                altSol += line + ' ';
+            })
+            altSol += ('\\end{align*}');
+            return altSol;
+        },
+        ans () {
+            console.log('determinant', this.determinant);
+            console.log('iscomplex: ', this.isComplex);
+            console.log('st of determinant = ', this.sqrt(-this.determinant));
+        },
+        determinant () {
+            return this.b * this.b - 4 * this.a * this.c
+        },
+        isComplex() {
+            return this.determinant < 0;
         }
-    }
+    },
 }
 </script>
 
@@ -47,21 +209,8 @@ export default {
     h1 {
         text-align: center;
     }
-    input {
-        font-family:'Courier New', Courier, monospace;
-        font-weight: bold;
-        width: 60px;
-        text-align: center;
-        background-color: v-bind('$darkBlue');
-        color: v-bind('$grey');
-        border: none;
-        &:focus {
-            outline: none;
-            border: none;
-            outline: 1px solid v-bind('$lightGreen');
-        }
-    }
     .user-input-container {
+        font-size: 1.5em;
         // display: flex;
         // justify-content: center;
         > .user-input-item {
@@ -69,14 +218,10 @@ export default {
                 font-size: 1em;
                 margin: 10px;
             }
-            font-size: 1.5em;
             // width: 600px;
             display: flex;
             justify-content: center;
             align-items: center;
-        }
-        > .answer {
-            font-size: 1.5em;
         }
     }
 }
