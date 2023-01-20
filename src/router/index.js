@@ -18,7 +18,8 @@ const routes = [
   },
   {
     path: '/basic-equations',
-    name: 'Basic Equations',
+    name: 'Basic',
+    menuName: 'Basic Equations',
     redirect: '/basic-equations',
     // component: () => import('../views/BasicEquationsView.vue'),
     children: [
