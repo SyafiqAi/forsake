@@ -9,7 +9,7 @@
 
             <div class="subitem-list" ref="routes" style='height: 0;'>
                 <div class="sub item" v-for="subRoute in route.children" :key='subRoute.name'>
-                    <router-link v-if="subRoute.name !== '-'" @click="$emit('linkclicked')" :to="{name:subRoute.name}" class="item-text"> {{subRoute.name}}</router-link>
+                    <router-link v-if="subRoute.path !== ''" @click="$emit('linkclicked')" :to="{name:subRoute.name}" class="item-text"> {{subRoute.name}}</router-link>
                 </div>
             </div>
         </div>
