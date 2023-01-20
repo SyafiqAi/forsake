@@ -66,7 +66,7 @@ export default {
         flex-direction: column;
         .math {
           font-size: initial;
-          font-size: 2em;
+          font-size: 1.5em;
         }
       }
     }
