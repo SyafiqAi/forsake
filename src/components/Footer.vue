@@ -5,7 +5,7 @@
       <br />
       Thank you Mason.
       <br />
-      V 1.1.1
+      V 1.1.0
     </div>
   </div>
 </template>
