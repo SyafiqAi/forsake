@@ -24,7 +24,7 @@ export default {
         return {
             a: 1,
             b: 1,
-            c: 4,
+            c: 1,
             solution: [],
         }
     },
@@ -85,8 +85,6 @@ export default {
         isCoprime(m,n) {
             let simplify = this.$math.simplify(`${m} / ${n}`).toString();
             let original = `${m} / ${n}`
-            console.log("simplify: ", simplify);
-            console.log("original: ", original);
             return simplify === original;
         },
         determinantZero() {
@@ -111,12 +109,10 @@ export default {
                 `)
             } else {
                 let sqrtDet = this.sqrt(this.determinant);
-                console.log('sqrtDet', sqrtDet);
                 let x = `\\sqrt{${sqrtDet.in}}`;
                 let right = this.$math.simplify(`(${sqrtDet.out} * x )`);
                 right = right.toTex();
                 right = right.replace('x', x);
-                console.log('right', right);
                 this.solution.push(`
                     &= \\frac {${-this.b}} {${2 * this.a}} \\pm \\frac {${right}} {${2 * this.a}} \\\\
                 `)
@@ -125,9 +121,7 @@ export default {
                     let left = this.$math.simplify(`${-this.b} / (2 * ${this.a})`).toTex();
     
                     right = this.$math.simplify(`(${sqrtDet.out} * x ) / (${this.a} * 2)`);
-                    console.log("right before totex: ", right.toString({implicit: 'hidden'}));
                     right = right.toTex();
-                    console.log("right before replace; ",right);
                     if(sqrtDet.in < 1) {
                         x = `\\sqrt{${-sqrtDet.in}}`;
                         right = right.replace('x', x);
@@ -135,7 +129,6 @@ export default {
                     } else {
                         right = right.replace('x', x);
                     }
-                    console.log('right', right);
                     this.solution.push(`
                         &= ${left} \\pm ${right} \\\\
                     `)
@@ -188,17 +181,9 @@ export default {
             altSol += ('\\end{align*}');
             return altSol;
         },
-        ans () {
-            console.log('determinant', this.determinant);
-            console.log('iscomplex: ', this.isComplex);
-            console.log('st of determinant = ', this.sqrt(-this.determinant));
-        },
         determinant () {
             return this.b * this.b - 4 * this.a * this.c
         },
-        isComplex() {
-            return this.determinant < 0;
-        }
     },
 }
 </script>
