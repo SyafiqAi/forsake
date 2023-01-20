@@ -39,7 +39,12 @@ export default {
 </script>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;900&display=swap');
+
+:root {
+  --blue: #1e90ff;
+  --white: #ffffff; 
+}
 
 .red{
   border: 1px solid red;
@@ -47,7 +52,7 @@ export default {
 
 #app {
   // font-family: Avenir, Helvetica, Arial, sans-serif;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

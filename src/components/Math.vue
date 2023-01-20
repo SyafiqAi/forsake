@@ -25,3 +25,8 @@ export default {
     }
 }
 </script>
+<style lang="scss" scoped>
+:deep(.katex-display) {
+  margin: 0;
+}
+</style>

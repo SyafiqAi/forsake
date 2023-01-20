@@ -208,6 +208,13 @@ export default {
             justify-content: center;
             align-items: center;
         }
+
+        > .solution {
+            overflow-x: auto;
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
     }
 }
 

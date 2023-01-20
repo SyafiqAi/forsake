@@ -5,8 +5,6 @@
       <TextArea v-model="formula" />
     </div>
 
-    <br /><br />
-    
     <div class="maths-container prevent-select">
       <div class="maths" @click="changeFormula()">
         <Math :formula="formula" />
@@ -77,6 +75,7 @@ export default {
     align-items: center;
     > .maths {
       font-size: 1.15em;
+      margin: 5px 30px;
       padding: 30px;
       // border: 1px solid red;
       border-radius: 10px;
