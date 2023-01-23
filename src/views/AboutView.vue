@@ -1,6 +1,10 @@
 <template>
   <div id="aboutview-main">
-    <h1>About Forsake</h1>
+    <h1>
+      About&nbsp;
+      <img alt="Bolt logo" src="../assets/bolt.svg" /> 
+      FORSAKE
+    </h1>
 
     <div class="content">
       <div class="math">
@@ -42,6 +46,13 @@ export default {
   #aboutview-main {
     > h1 {
       text-align: center;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        height: 0.7em;
+      }
     }
 
     > .content {

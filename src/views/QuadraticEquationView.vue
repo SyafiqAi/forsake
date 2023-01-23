@@ -1,6 +1,6 @@
 <template>
     <div id="quadratic-equation-main">
-        <h1>Quadratic Equation</h1>
+        <h1>Find the Roots of a Quadratic Equation</h1>
         <!-- <TextArea /> -->
         <div class="user-input-container">
             <div class="user-input-item">
@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import {isMobile} from "../modules/utilities.js";
 export default {
     data() {
         return {
@@ -29,7 +30,8 @@ export default {
         }
     },
     mounted() {
-        this.$refs.a.$el.focus();
+        if(!isMobile())
+            this.$refs.a.$el.focus();
         let s = this.$math.simplify('2a * sqrt(a)');
         s = s.toString({implicit: 'hide'});
         // s = s.toTex();
@@ -211,6 +213,7 @@ export default {
 
         > .solution {
             overflow-x: auto;
+            margin: 20px;
             &::-webkit-scrollbar {
                 display: none;
             }

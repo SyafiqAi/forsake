@@ -10,7 +10,6 @@
         <Math :formula="formula" />
       </div>
     </div>
-    <br />
     
   </div>
 </template>
