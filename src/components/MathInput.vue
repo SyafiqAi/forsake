@@ -38,20 +38,14 @@ export default {
         },
     },
     computed: {
-        length() {
-            let length;
-            let unit = 'px'
-            let letterSize = 14.5;
-
-            let modelLength = this.modelValue.toString().length;
-            if(modelLength){
-                length = modelLength * letterSize;
-            }
-            else 
-                length = 1 * letterSize;
+        width() {
+            let defaultWidth = '1ch';
+            if(!this.modelValue)
+                return defaultWidth;
             
-            length += 5.5;
-            return length + unit;
+            let strLength = this.modelValue.toString().length;
+            let unit = 'ch';
+            return strLength + unit;
         },
         inputOutline() {
             let validOutline = 'none';
@@ -84,7 +78,7 @@ export default {
     input {
         font-family:'Courier New', Courier, monospace;
         font-weight: bold;
-        width: v-bind('length');
+        width: v-bind('width');
         // min-width: 20px;
         text-align: center;
         background-color: v-bind('$darkBlue');
