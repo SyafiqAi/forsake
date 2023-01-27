@@ -92,6 +92,7 @@ function showLoading() {
     console.log("imgsrc = ", imageSrc.value);
 }
 function showSuccess() {
+    showImage.value = false;
     imageSrc.value = '';
     showPopup.value = true;
     popupTitle.value = 'Thanks!'
@@ -101,6 +102,7 @@ function showSuccess() {
     console.log("imgsrc = ", imageSrc.value);
 }
 function showFail() {
+    showImage.value = false;
     imageSrc.value = '';
     showPopup.value = true;
     popupTitle.value = 'Failed to save.'
