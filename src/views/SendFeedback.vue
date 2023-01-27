@@ -46,7 +46,7 @@
 import { sendFeedback } from '@/firebaseConfig.js';
 import { computed, ref, watch } from '@vue/runtime-core';
 import ripple from '../assets/ripple.svg'
-import asleep from '../assets/Error.png'
+import asleep from '../assets/error.png'
 import thumbsUp from '../assets/thumbsUp.gif'
 
 const nameInputPlaceholder = '(Optional)'
