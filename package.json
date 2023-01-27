@@ -3,18 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build",
     "serve": "vite preview"
   },
   "dependencies": {
+    "firebase": "^8.10.1",
     "mathjs": "^11.5.0",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3"
   },
   "devDependencies": {
-    "sass": "^1.57.1",
     "@vitejs/plugin-vue": "^1.6.1",
+    "sass": "^1.57.1",
     "vite": "^2.5.4"
   }
 }

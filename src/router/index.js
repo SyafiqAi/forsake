@@ -31,7 +31,12 @@ const routes = [
         component: () => import('../views/QuadraticEquationView.vue'),
       }
     ]
-  }
+  },
+  {
+    path: '/send-feedback',
+    name: 'Send Feedback',
+    component: () => import('../views/SendFeedback.vue'),
+  },
 ]
 
 const router = createRouter({
