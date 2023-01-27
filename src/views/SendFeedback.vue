@@ -92,6 +92,7 @@ function showLoading() {
     console.log("imgsrc = ", imageSrc.value);
 }
 function showSuccess() {
+    imageSrc.value = '';
     showPopup.value = true;
     popupTitle.value = 'Thanks!'
     popupContent.value = "I'll check it out later."
@@ -100,6 +101,7 @@ function showSuccess() {
     console.log("imgsrc = ", imageSrc.value);
 }
 function showFail() {
+    imageSrc.value = '';
     showPopup.value = true;
     popupTitle.value = 'Failed to save.'
     popupContent.value = "Please try again."
