@@ -31,7 +31,7 @@
                     <br />
                     <br />
             <div class="popup-content">
-                <img v-show="showImage" height='150' :src="imageSrc" alt='loading' />
+                <img v-show="showImage" height='150' :src="imageSrc" alt='loading' :key="imageSrc"/>
                 <div v-if="popupContent!==''">
                     <br />
                     <br />
@@ -89,7 +89,6 @@ function showLoading() {
     popupContent.value = ""
     showImage.value = true;
     imageSrc.value = ripple;
-    console.log("imgsrc = ", imageSrc.value);
 }
 function showSuccess() {
     showImage.value = false;
@@ -99,7 +98,6 @@ function showSuccess() {
     popupContent.value = "I'll check it out later."
     showImage.value = true;
     imageSrc.value = thumbsUp;
-    console.log("imgsrc = ", imageSrc.value);
 }
 function showFail() {
     showImage.value = false;
