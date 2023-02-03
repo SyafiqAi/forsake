@@ -33,6 +33,25 @@ const routes = [
     ]
   },
   {
+    path: '/applied-regression-analysis',
+    name: 'Test',
+    menuName: 'Applied Regression Analysis',
+    redirect: '/applied-regression-analysis',
+    // component: () => import('../views/BasicEquationsView.vue'),
+    children: [
+      {
+        path: '',
+        name: 'Applied Regression Analysis',
+        component: () => import('../views/AppliedRegressionAnalysisView.vue'),
+      },
+      {
+        path: '/applied-regression-analysis/fitted-simple-linear-regression-model',
+        name: 'Fitted Simple Linear Regression Model',
+        component: () => import('../views/FslrmView.vue'),
+      }
+    ]
+  },
+  {
     path: '/send-feedback',
     name: 'Send Feedback',
     component: () => import('../views/SendFeedback.vue'),

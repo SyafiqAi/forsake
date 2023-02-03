@@ -66,6 +66,9 @@ export default {
   min-height: 100vh;
 
   overflow-x: hidden;
+  h1 {
+    text-align: center;
+  }
 }
 
 body {

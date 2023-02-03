@@ -4,7 +4,7 @@
 
 <script>
 export default {
-    props: ['formula'],
+    props: ['formula', 'displayMode'],
     mounted() {
       this.renderFormula();
     },
@@ -13,7 +13,7 @@ export default {
         let element = this.$refs.katex;
         katex.render(this.formula, element, {
           throwOnError: false,
-          displayMode: true,
+          displayMode: this.displayMode || true,
           strict: false,
         });
       }
