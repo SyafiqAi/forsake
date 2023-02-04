@@ -41,11 +41,21 @@
         </div>
         <br />
         <div class="equations-container">
-            <Math :formula="betaHat1Equation" />
+            <div class="eq">
+                <Math :formula="betaHat1Equation" />
+            </div>
             <br />
-            <Math :formula="betaHat0Equation" />
+            <div class="eq">
+                <Math :formula="betaHat0Equation" />
+            </div>
             <br />
-            <Math :formula="yhat" />
+            <div class="eq">
+                
+            </div>
+            <div class="final-answer">
+                <Math :formula="yhat" :displayMode="true"/> 
+                <img src="@/assets/bolt.svg" alt="" style="max-height:1.5em; padding-left: 1em;" />
+            </div>
         </div>
     </div>
   </div>
@@ -150,6 +160,7 @@ function toFixedIfNecessary( value, dp ){
 .input-area {
     display: flex;
     flex-direction: column;
+    align-items: center;
     > *{
         display: flex;
         align-items: center;
@@ -159,7 +170,15 @@ function toFixedIfNecessary( value, dp ){
         }
     }
     > .equations-container {
-        display: initial;
+        // display: initial;
+        flex-direction: column;
+        width: fit-content;
+        align-items: flex-start;
+        > .final-answer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
 
     > .table-container {
